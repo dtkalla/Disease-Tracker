@@ -1,0 +1,38 @@
+{
+  "name": "javascript_global_health",
+  "version": "1.0.0",
+  "description": "While rich countries around the world have largely eliminated malaria and tuberculosis as public health threats, they continue to be major killers worldwide.  This project will let users visualize the disease burden from the \"Big Three\" infectious diseases (malaria, tuberculosis, HIV), as well as select neglected tropical diseases (trachoma, polio, and guinea worm).  Users will be able to compare different countries and see how these have changed over time.",
+  "main": "dummy_test_file.js",
+  "browserslist": [
+    "defaults"
+  ],
+  "scripts": {
+    "watch": "webpack --watch --mode=development",
+    "build": "webpack --mode=production"  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dtkalla/JavaScript-Project-Global-Health.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dtkalla/JavaScript-Project-Global-Health/issues"
+  },
+  "homepage": "https://github.com/dtkalla/JavaScript-Project-Global-Health#readme",
+  "dependencies": {
+    "@babel/core": "^7.20.2",
+    "@babel/preset-env": "^7.20.2",
+    "babel-loader": "^9.1.0",
+    "core-js": "^3.26.0",
+    "css-loader": "^6.7.1",
+    "mini-css-extract-plugin": "^2.6.1",
+    "regenerator-runtime": "^0.13.10",
+    "sass": "^1.56.1",
+    "sass-loader": "^13.2.0",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
+
+
