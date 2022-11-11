@@ -7,13 +7,14 @@ async function getData() {
         throw response;
     }
     const data = await response.json();
-
-    return data;
+    
+    // console.log(data);
+    
+    return data
 }
 
-getData()
-    .then(data => console.log(data))
-    .catch(errorResponse => console.log(errorResponse));
+
+console.log(getData())
 
 
 
@@ -32,7 +33,7 @@ getData()
 // console.log(found[0].NumericValue);
 
 
-// const dataTable = function() {
+// const dataTable = function name() {
 //     const table = [];
 //     for (let i = 0; i < data.length; i++) {
 //         if (data[i].NumericValue === null) {
