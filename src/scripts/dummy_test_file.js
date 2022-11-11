@@ -5133,5 +5133,23 @@ const dataTable = function() {
 
 console.log(dataTable())
 
-// let url = 'https://ghoapi.azureedge.net/api/MALARIA_EST_DEATHS?$filter=SpatialDimType%20eq%20%27COUNTRY%27and%20TimeDim%20eq%202020';
-// let data2 = axios.get(url);
+const fetch = require('node-fetch');
+
+let url = 'https://ghoapi.azureedge.net/api/MALARIA_EST_DEATHS?$filter=SpatialDimType%20eq%20%27COUNTRY%27and%20TimeDim%20eq%202020';
+// let data2 = fetch(url);
+
+// console.log(data2)
+
+async function getData() {
+    const response = await fetch(url);
+    if (!response.ok) {
+        throw response;
+    }
+    const data3 = await response.json();
+
+    return data3;
+}
+
+getData()
+    .then(data => console.log(data))
+    .catch(errorResponse => console.log(errorResponse));
