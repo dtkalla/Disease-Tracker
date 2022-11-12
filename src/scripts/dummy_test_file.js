@@ -1,5 +1,4 @@
 const fetch = require('node-fetch');
-const XMLHttpRequest  = require('xhr2');
 let url = 'https://ghoapi.azureedge.net/api/MALARIA_EST_DEATHS?$filter=SpatialDimType%20eq%20%27COUNTRY%27and%20TimeDim%20eq%202020';
 
 async function getData() {
@@ -36,9 +35,9 @@ function arrayTable(data) {
     const table = [];
     for (let i = 0; i < data.length; i++) {
         if (data[i].NumericValue === null) {
-            table.push([data[i].SpatialDim,0])
+            table.push([0,data[i].SpatialDim])
         } else {
-            table.push([data[i].SpatialDim,data[i].NumericValue])
+            table.push([parseInt(data[i].NumericValue),data[i].SpatialDim])
         }
     }
     console.log(table)
