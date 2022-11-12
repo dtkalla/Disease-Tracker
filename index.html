@@ -15,24 +15,24 @@
 
   <body>
     <!-- <div id="main"></div> -->
-    <svg id="my_dataviz" width="400" height="300">
+    <svg id="my_dataviz" width="850" height="400">
       <script>
 
         // The svg
-        var svg = d3.select("svg"),
-          width = +svg.attr("width"),
-          height = +svg.attr("height");
+        const svg = d3.select("svg"),
+          width = svg.attr("width"),
+          height = svg.attr("height");
         
         // Map and projection
-        var path = d3.geoPath();
-        var projection = d3.geoMercator()
-          .scale(70)
-          .center([0,20])
-          .translate([width / 2, height / 2]);
+        const path = d3.geoPath();
+        const projection = d3.geoMercator()
+          .scale(120)
+          .center([22,0])
+          <!-- .translate([width / 2, height / 2]); -->
         
         // Data and color scale
-        var data = d3.map();
-        var colorScale = d3.scaleThreshold()
+        const data = d3.map();
+        const colorScale = d3.scaleThreshold()
           .domain([100000, 1000000, 10000000, 30000000, 100000000, 500000000])
           .range(d3.schemeBlues[7]);
         
@@ -88,33 +88,10 @@
               .on("mouseover", mouseOver )
               .on("mouseleave", mouseLeave )
             }
-        
-
-            let url2 = 'https://ghoapi.azureedge.net/api/DIMENSION/COUNTRY/DimensionValues'
-
-            function printArray() {
-              fetch(url2).then(response => {
-                  if (!response.ok) {
-                    throw new Error('Network response was not OK');
-                  }
-                  return response.json();
-              })
-              .then(data => {
-                  arrayTable(data["value"]);
-              })
-          }
-          
-          function arrayTable(data) {
-              const table = [];
-              for (let i = 0; i < data.length; i++) {
-                  table.push([data[i].Code,data[i].Title])
-              }
-              console.log(table)
-          }
-
-          printArray()
         </script>
+
     </svg>
+    <div>This is a box to give you some context about malaria.  It's one of the leading causes of death for children under 5 but cheap to prevent and treat, etc.</div>
   </body>
 
 

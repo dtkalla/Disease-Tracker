@@ -1,7 +1,6 @@
 const fetch = require('node-fetch');
 const conversionHash = require("./conversion.js");
-let url = 'https://ghoapi.azureedge.net/api/MALARIA_EST_DEATHS?$filter=SpatialDimType%20eq%20%27COUNTRY%27and%20TimeDim%20eq%202020';
-let url2 = 'https://ghoapi.azureedge.net/api/DIMENSION/COUNTRY/DimensionValues'
+let url = 'https://ghoapi.azureedge.net/api/MALARIA_EST_DEATHS?$filter=SpatialDimType%20eq%20%27COUNTRY%27and%20TimeDim%20eq%20';
 
 // async function getData() {
 //     const response = await fetch(url);
@@ -18,8 +17,8 @@ let url2 = 'https://ghoapi.azureedge.net/api/DIMENSION/COUNTRY/DimensionValues'
 
 
 
-function printArray() {
-    fetch(url).then(response => {
+function printArray(num='2020') {
+    fetch(url+num).then(response => {
         if (!response.ok) {
           throw new Error('Network response was not OK');
         }
@@ -43,11 +42,8 @@ function arrayTable(data) {
     
 }
 
+printArray('2007')
 
-
-// const req = new XMLHttpRequest();
-// req.open("GET", url, false);
-// // req.send()
 
 // // data = data2["value"]
 // console.log(req)
@@ -71,7 +67,6 @@ function arrayTable(data) {
 
 // console.log(dataTable())
 
-printArray()
 
 
 
