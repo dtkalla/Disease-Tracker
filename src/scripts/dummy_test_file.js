@@ -5,6 +5,7 @@ let tuberculosisUrl = 'https://ghoapi.azureedge.net/api/TB_e_mort_exc_tbhiv_num?
 let polioUrl = 'https://ghoapi.azureedge.net/api/VACCINEPREVENTABLE_WILDPOLIO?$filter=SpatialDimType%20eq%20%27COUNTRY%27and%20TimeDim%20eq%20';
 let guineaWormUrl = 'https://ghoapi.azureedge.net/api/NTD_3?$filter=SpatialDimType%20eq%20%27COUNTRY%27and%20TimeDim%20eq%20';
 let HIVUrl = 'https://ghoapi.azureedge.net/api/HIV_0000000006?$filter=SpatialDimType%20eq%20%27COUNTRY%27and%20TimeDim%20eq%20';
+let leprosyUrl = 'https://ghoapi.azureedge.net/api/NTD_LEPR5?$filter=SpatialDimType%20eq%20%27COUNTRY%27and%20TimeDim%20eq%20';
 
 
 // async function getData() {
@@ -23,7 +24,7 @@ let HIVUrl = 'https://ghoapi.azureedge.net/api/HIV_0000000006?$filter=SpatialDim
 
 
 function printArray(num='2020') {
-    fetch(HIVUrl+num).then(response => {
+    fetch(leprosyUrl+num).then(response => {
         if (!response.ok) {
           throw new Error('Network response was not OK');
         }
@@ -40,10 +41,10 @@ function arrayTable(data) {
         if (data[i].NumericValue === null) {
             // table.push([conversionHash[data[i].SpatialDim],0])
         } else {
-        table.push([conversionHash[data[i].SpatialDim],data[i].NumericValue])
+        table.push([data[i].SpatialDim,data[i].NumericValue])
         }
     }
-    console.log(table)
+    console.log(table.slice(50))
     
 }
 

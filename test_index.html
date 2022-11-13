@@ -1,0 +1,252 @@
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta https-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./dist/main.css" />
+    <script src="./dist/main.js"></script>
+    <script src="https://d3js.org/d3.v4.js">
+      const express = require('express')
+      const cors = require('cors')
+      const app = express()
+      
+      app.use(cors())
+      
+      app.get('/products/:id', function (req, res, next) {
+        res.json({msg: 'This is CORS-enabled for all origins!'})
+      })
+      
+      app.listen(80, function () {
+        console.log('CORS-enabled web server listening on port 80')
+      })
+      </script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+    <title>Mapping Global Health</title>
+    <h1>Mapping Global Health</h1>
+  </head>
+
+  <body>
+    <!-- <div id="main"></div> -->
+    <svg id="my_dataviz" width="850" height="400">
+      <script>
+
+        
+        const fakeData = [
+        [ 'name', 'cases' ],
+        [ 'Afghanistan', 0 ],
+        [ 'Algeria', 0 ],
+        [ 'Andorra', 0 ],
+        [ 'Armenia', 0 ],
+        [ 'Austria', 0 ],
+        [ 'Bahrain', 0 ],
+        [ 'Belarus', 0 ],
+        [ 'Bhutan', 0 ],
+        [ 'Bulgaria', 0 ],
+        [ 'Costa Rica', 0 ],
+        [ 'Cyprus', 0 ],
+        [ 'North Korea', 0 ],
+        [ 'Djibouti', 0 ],
+        [ 'Ecuador', 0 ],
+        [ 'Estonia', 0 ],
+        [ 'Gambia', 0 ],
+        [ 'Germany', 0 ],
+        [ 'Hungary', 0 ],
+        [ 'Iceland', 0 ],
+        [ 'Iraq', 0 ],
+        [ 'Ireland', 0 ],
+        [ 'Israel', 0 ],
+        [ 'Jamaica', 0 ],
+        [ 'Japan', 0 ],
+        [ 'Jordan', 0 ],
+        [ 'Kuwait', 0 ],
+        [ 'Kyrgyzstan', 0 ],
+        [ 'Latvia', 0 ],
+        [ 'Lebanon', 0 ],
+        [ 'Lithuania', 0 ],
+        [ 'Maldives', 0 ],
+        [ 'Malta', 0 ],
+        [ 'Monaco', 0 ],
+        [ 'Norway', 0 ],
+        [ 'Panama', 0 ],
+        [ 'Poland', 0 ],
+        [ 'Qatar', 0 ],
+        [ 'Romania', 0 ],
+        [ 'Russia', 0 ],
+        [ 'San Marino', 0 ],
+        [ 'Saudi Arabia', 0 ],
+        [ 'Seychelles', 0 ],
+        [ 'Slovakia', 0 ],
+        [ 'Slovenia', 0 ],
+        [ 'Suriname', 0 ],
+        [ 'Sweden', 0 ],
+        [ 'Syria', 0 ],
+        [ 'Tunisia', 0 ],
+        [ 'Turkmenistan', 0 ],
+        [ 'United Arab Emirates', 0 ],
+        [ 'United States of America', 0 ],
+        [ 'Australia', 1 ],
+        [ 'Eritrea', 1 ],
+        [ 'Gabon', 1 ],
+        [ 'Iran', 1 ],
+        [ 'Morocco', 1 ],
+        [ 'Namibia', 1 ],
+        [ 'Netherlands', 1 ],
+        [ 'Vanuatu', 1 ],
+        [ 'Venezuela', 1 ],
+        [ 'Comoros', 2 ],
+        [ 'El Salvador', 2 ],
+        [ 'France', 2 ],
+        [ 'Guinea-Bissau', 2 ],
+        [ 'Peru', 2 ],
+        [ 'Uruguay', 2 ],
+        [ 'Equatorial Guinea', 3 ],
+        [ 'Rwanda', 3 ],
+        [ 'Cambodia', 4 ],
+        [ 'Dominican Republic', 4 ],
+        [ 'Micronesia', 4 ],
+        [ 'Bolivia', 5 ],
+        [ 'Laos', 6 ],
+        [ 'Timor-Leste', 6 ],
+        [ 'Kiribati', 7 ],
+        [ 'Mexico', 7 ],
+        [ 'Yemen', 7 ],
+        [ 'Mali', 9 ],
+        [ 'Thailand', 9 ],
+        [ 'Congo', 12 ],
+        [ 'Malaysia', 15 ],
+        [ 'Philippines', 15 ],
+        [ 'Zimbabwe', 15 ],
+        [ 'Cameroon', 16 ],
+        [ 'Sierra Leone', 16 ],
+        [ 'Argentina', 17 ],
+        [ 'Cuba', 18 ],
+        [ 'Angola', 20 ],
+        [ 'Paraguay', 21 ],
+        [ 'Ghana', 24 ],
+        [ 'Malawi', 24 ],
+        [ 'Benin', 26 ],
+        [ 'Colombia', 26 ],
+        [ 'Egypt', 29 ],
+        [ 'Pakistan', 31 ],
+        [ 'Togo', 37 ],
+        [ 'Guinea', 43 ],
+        [ 'Papua New Guinea', 50 ],
+        [ 'Burkina Faso', 59 ],
+        [ 'Chad', 66 ],
+        [ 'China', 72 ],
+        [ 'Somalia', 73 ],
+        [ 'Sri Lanka', 81 ],
+        [ 'Niger', 88 ],
+        [ 'Uganda', 92 ],
+        [ 'Nepal', 101 ],
+        [ 'Sudan', 115 ],
+        [ 'Tanzania', 115 ],
+        [ "Côte d'Ivoire", 128 ],
+        [ 'Bangladesh', 137 ],
+        [ 'South Sudan', 152 ],
+        [ 'Myanmar', 179 ],
+        [ 'Madagascar', 285 ],
+        [ 'Ethiopia', 384 ],
+        [ 'Mozambique', 399 ],
+        [ 'Democratic Republic of the Congo', 418 ],
+        [ 'Indonesia', 628 ],
+        [ 'Brazil', 1504 ],
+        [ 'India', 1572 ],
+        [ 'Brunei', 0 ],
+        [ 'Mongolia', 0 ],
+        [ 'Solomon Islands', 3 ],
+        [ 'Vietnam', 13 ]]
+    
+    const csvData = function(data = fakeData) {
+        let string = '';
+        for (let i = 0; i < data.length; i++) {
+            string += data[i][0]+','+data[i][1]+'\n'
+        }
+        return string
+    }
+
+
+
+
+        // The svg
+        const svg = d3.select("svg"),
+          width = svg.attr("width"),
+          height = svg.attr("height");
+        
+        // Map and projection
+        const path = d3.geoPath();
+        const projection = d3.geoMercator()
+          .scale(120)
+          .center([22,0])
+          <!-- .translate([width / 2, height / 2]); -->
+        
+        // Data and color scale
+        const data = d3.map();
+        const colorScale = d3.scaleThreshold()
+          .domain([0,1,10,100,1000,10000,100000,1000000])
+          .range(d3.schemeReds[7]);
+        
+        // Load external data and boot
+        d3.queue()
+          .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
+          .defer(d3.csv, "./test.csv", function(d) { data.set(d.name, +d.cases); })
+          .await(ready);
+        
+        function ready(error, topo) {
+        
+          let mouseOver = function(d) {
+            d3.selectAll(".Country")
+              .transition()
+              .duration(200)
+              .style("opacity", .5)
+            d3.select(this)
+              .transition()
+              .duration(200)
+              .style("opacity", 1)
+              .style("stroke", "black")
+          }
+        
+          let mouseLeave = function(d) {
+            d3.selectAll(".Country")
+              .transition()
+              .duration(200)
+              .style("opacity", .8)
+            d3.select(this)
+              .transition()
+              .duration(200)
+              .style("stroke", "transparent")
+          }
+        
+          // Draw the map
+          svg.append("g")
+            .selectAll("path")
+            .data(topo.features)
+            .enter()
+            .append("path")
+              // draw each country
+              .attr("d", d3.geoPath()
+                .projection(projection)
+              )
+              // set the color of each country
+              .attr("fill", function (d) {
+                d.total = data.get(d.id) || 0;
+                return colorScale(d.total);
+              })
+              .style("stroke", "transparent")
+              .attr("class", function(d){ return "Country" } )
+              .style("opacity", .8)
+              .on("mouseover", mouseOver )
+              .on("mouseleave", mouseLeave )
+            }
+
+            
+        </script>
+
+    </svg>
+    <div>This is a box to give you some context about malaria.  It's one of the leading causes of death for children under 5 but cheap to prevent and treat, etc.</div>
+  </body>
+
+
+</html>
