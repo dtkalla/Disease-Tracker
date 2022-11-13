@@ -3,14 +3,20 @@ h1 {
     justify-content: center;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+}
+
 svg {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    position: static;
 }
 
 div {
-    display: flex;
-    justify-content: flex-end;
+    // display: flex;
+    // justify-content: flex-start;
 }
 
 html {

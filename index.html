@@ -6,32 +6,29 @@
     <meta https-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./dist/main.css" />
     <script src="./dist/main.js"></script>
-    <script src="https://d3js.org/d3.v4.js">
-      const express = require('express')
-      const cors = require('cors')
-      const app = express()
-      
-      app.use(cors())
-      
-      app.get('/products/:id', function (req, res, next) {
-        res.json({msg: 'This is CORS-enabled for all origins!'})
-      })
-      
-      app.listen(80, function () {
-        console.log('CORS-enabled web server listening on port 80')
-      })
-      </script>
+    <script src="https://d3js.org/d3.v4.js"></script>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
     <title>Mapping Global Health</title>
     <h1>Mapping Global Health</h1>
+    There are links to GitHub, LinkedIn, etc. up here
   </head>
 
   <body>
     <!-- <div id="main"></div> -->
-    <svg id="my_dataviz" width="850" height="400">
+    <div>
+      Press these buttons to select a disease
+      <ul>
+        <li>Malaria</li>
+        <li>Tuberculosis</li>
+        <li>HIV</li>
+        <li>Polio</li>
+        <li>Guinea Worm (Dracunculiasis)</li>
+        <li>Leprosy</li>
+      </ul>
+    </div>
+    <svg id="my_dataviz" width="850" height="450">
       <script>
-
         // The svg
         const svg = d3.select("svg"),
           width = svg.attr("width"),
@@ -39,21 +36,21 @@
         
         // Map and projection
         const path = d3.geoPath();
-        const projection = d3.geoMercator()
+        const projection = d3.geoNaturalEarth1()
           .scale(120)
-          .center([22,0])
+          .center([0,0])
           <!-- .translate([width / 2, height / 2]); -->
         
         // Data and color scale
         const data = d3.map();
         const colorScale = d3.scaleThreshold()
-          .domain([100000, 1000000, 10000000, 30000000, 100000000, 500000000])
-          .range(d3.schemeBlues[7]);
-        
+          .domain([-1,0,1,10,100,1000,10000,100000,100000])
+          .range(['#FFFFFF','#CCCCCC','#FFFFFF','#FFDDDD','#FCBBA1','#FC9272','#FB6A4A','#DE2D26','#A50F15','#750000']);
+        <!-- fix color scheme, but right general idea -->
         // Load external data and boot
         d3.queue()
           .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
-          .defer(d3.csv, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world_population.csv", function(d) { data.set(d.code, +d.pop); })
+          .defer(d3.csv, "./src/scripts/data/malaria.csv", function(d) { if (d.year==2020) {data.set(d.name, +d.cases)}; })
           .await(ready);
         
         function ready(error, topo) {
@@ -93,7 +90,8 @@
               )
               // set the color of each country
               .attr("fill", function (d) {
-                d.total = data.get(d.id) || 0;
+                d.total = data.get(d.id);
+                if (d.total === undefined) d.total = -1;
                 return colorScale(d.total);
               })
               .style("stroke", "transparent")
@@ -103,38 +101,15 @@
               .on("mouseleave", mouseLeave )
             }
 
-            let tuberculosisUrl = 'https://ghoapi.azureedge.net/api/TB_e_mort_exc_tbhiv_num?$filter=SpatialDimType%20eq%20%27COUNTRY%27and%20TimeDim%20eq%20';
-            function printArray(num='2020') {
-              fetch(tuberculosisUrl+num).then(response => {
-                  if (!response.ok) {
-                    throw new Error('Network response was not OK');
-                  }
-                  return response.json();
-              })
-              .then(data => {
-                  arrayTable(data["value"]);
-              })
-          }
-          
-          function arrayTable(data) {
-              const table = [];
-              for (let i = 0; i < data.length; i++) {
-                  if (data[i].NumericValue === null) {
-                      table.push([conversionHash[data[i].SpatialDim],0])
-                  } else {
-                  table.push([conversionHash[data[i].SpatialDim],data[i].NumericValue])
-                  }
-              }
-              console.log(table)
-              
-          }
-          
-          printArray('2020')
+            
         </script>
 
     </svg>
     <div>This is a box to give you some context about malaria.  It's one of the leading causes of death for children under 5 but cheap to prevent and treat, etc.</div>
   </body>
 
+  <footer>
+    Select the year using this slider!
+  </footer>
 
 </html>
