@@ -3,10 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta https-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./dist/main.css" />
     <script src="./dist/main.js"></script>
-    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://d3js.org/d3.v4.js">
+      const express = require('express')
+      const cors = require('cors')
+      const app = express()
+      
+      app.use(cors())
+      
+      app.get('/products/:id', function (req, res, next) {
+        res.json({msg: 'This is CORS-enabled for all origins!'})
+      })
+      
+      app.listen(80, function () {
+        console.log('CORS-enabled web server listening on port 80')
+      })
+      </script>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
     <title>Mapping Global Health</title>
@@ -88,6 +102,34 @@
               .on("mouseover", mouseOver )
               .on("mouseleave", mouseLeave )
             }
+
+            let tuberculosisUrl = 'https://ghoapi.azureedge.net/api/TB_e_mort_exc_tbhiv_num?$filter=SpatialDimType%20eq%20%27COUNTRY%27and%20TimeDim%20eq%20';
+            function printArray(num='2020') {
+              fetch(tuberculosisUrl+num).then(response => {
+                  if (!response.ok) {
+                    throw new Error('Network response was not OK');
+                  }
+                  return response.json();
+              })
+              .then(data => {
+                  arrayTable(data["value"]);
+              })
+          }
+          
+          function arrayTable(data) {
+              const table = [];
+              for (let i = 0; i < data.length; i++) {
+                  if (data[i].NumericValue === null) {
+                      table.push([conversionHash[data[i].SpatialDim],0])
+                  } else {
+                  table.push([conversionHash[data[i].SpatialDim],data[i].NumericValue])
+                  }
+              }
+              console.log(table)
+              
+          }
+          
+          printArray('2020')
         </script>
 
     </svg>

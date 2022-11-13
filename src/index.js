@@ -1,4 +1,4 @@
-import Example from "./scripts/example";
+// import Example from "./scripts/example";
 const fetch = require('node-fetch');
 // const XML = require('xhr2');
 
@@ -6,6 +6,6 @@ const fetch = require('node-fetch');
 
 document.addEventListener("DOMContentLoaded", () => {
     const main = document.getElementById("main");
-    new Example(main);
+    // new Example(main);
 });
 

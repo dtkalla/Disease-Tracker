@@ -34,7 +34,7 @@ function arrayTable(data) {
     const table = [];
     for (let i = 0; i < data.length; i++) {
         if (data[i].NumericValue === null) {
-            // table.push([conversionHash[data[i].SpatialDim],0])
+            table.push([conversionHash[data[i].SpatialDim],0])
         } else {
         table.push([conversionHash[data[i].SpatialDim],data[i].NumericValue])
         }
