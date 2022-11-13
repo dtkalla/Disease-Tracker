@@ -1,11 +1,11 @@
 const fetch = require('node-fetch');
 const conversionHash = require("./conversion.js");
-let malariaUrl = 'https://ghoapi.azureedge.net/api/MALARIA_EST_DEATHS?$filter=SpatialDimType%20eq%20%27COUNTRY%27and%20TimeDim%20eq%20';
-let tuberculosisUrl = 'https://ghoapi.azureedge.net/api/TB_e_mort_exc_tbhiv_num?$filter=SpatialDimType%20eq%20%27COUNTRY%27and%20TimeDim%20eq%20';
-let HIVUrl = 'https://ghoapi.azureedge.net/api/HIV_0000000006?$filter=SpatialDimType%20eq%20%27COUNTRY%27and%20TimeDim%20eq%20';
-let polioUrl = 'https://ghoapi.azureedge.net/api/VACCINEPREVENTABLE_WILDPOLIO?$filter=SpatialDimType%20eq%20%27COUNTRY%27and%20TimeDim%20eq%20';
-let guineaWormUrl = 'https://ghoapi.azureedge.net/api/NTD_3?$filter=SpatialDimType%20eq%20%27COUNTRY%27and%20TimeDim%20eq%20';
-let leprosyUrl = 'https://ghoapi.azureedge.net/api/NTD_LEPR5?$filter=SpatialDimType%20eq%20%27COUNTRY%27and%20TimeDim%20eq%20';
+let malariaUrl = 'https://ghoapi.azureedge.net/api/MALARIA_EST_DEATHS?$filter=SpatialDimType%20eq%20%27COUNTRY%27';
+let tuberculosisUrl = 'https://ghoapi.azureedge.net/api/TB_e_mort_exc_tbhiv_num?$filter=SpatialDimType%20eq%20%27COUNTRY%27';
+let HIVUrl = 'https://ghoapi.azureedge.net/api/HIV_0000000006?$filter=SpatialDimType%20eq%20%27COUNTRY%27';
+let polioUrl = 'https://ghoapi.azureedge.net/api/VACCINEPREVENTABLE_WILDPOLIO?$filter=SpatialDimType%20eq%20%27COUNTRY%27';
+let guineaWormUrl = 'https://ghoapi.azureedge.net/api/NTD_3?$filter=SpatialDimType%20eq%20%27COUNTRY%27';
+let leprosyUrl = 'https://ghoapi.azureedge.net/api/NTD_LEPR5?$filter=SpatialDimType%20eq%20%27COUNTRY%27';
 
 
 // async function getData() {
@@ -23,8 +23,8 @@ let leprosyUrl = 'https://ghoapi.azureedge.net/api/NTD_LEPR5?$filter=SpatialDimT
 
 
 
-function printArray(num='2020') {
-    fetch(leprosyUrl+num).then(response => {
+function printArray() {
+    fetch(polioUrl).then(response => {
         if (!response.ok) {
           throw new Error('Network response was not OK');
         }
@@ -37,18 +37,18 @@ function printArray(num='2020') {
 
 function arrayTable(data) {
     const table = [];
-    for (let i = 0; i < data.length; i++) {
+    for (let i = 1000; i < data.length; i++) {
         if (data[i].NumericValue === null) {
-            // table.push([conversionHash[data[i].SpatialDim],0])
+            table.push([data[i].SpatialDim,0,data[i].TimeDim])
         } else {
-        table.push([data[i].SpatialDim,data[i].NumericValue])
+        table.push([data[i].SpatialDim,data[i].NumericValue,data[i].TimeDim])
         }
+        console.log(table[i-1000]+'')
     }
-    console.log(table.slice(50))
     
 }
 
-printArray('2020')
+printArray()
 
 
 // // data = data2["value"]
