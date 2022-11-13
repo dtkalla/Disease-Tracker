@@ -29,147 +29,8 @@
 
   <body>
     <!-- <div id="main"></div> -->
-    <svg id="my_dataviz" width="850" height="400">
+    <svg id="my_dataviz" width="850" height="450">
       <script>
-
-        
-        const fakeData = [
-        [ 'name', 'cases' ],
-        [ 'Afghanistan', 0 ],
-        [ 'Algeria', 0 ],
-        [ 'Andorra', 0 ],
-        [ 'Armenia', 0 ],
-        [ 'Austria', 0 ],
-        [ 'Bahrain', 0 ],
-        [ 'Belarus', 0 ],
-        [ 'Bhutan', 0 ],
-        [ 'Bulgaria', 0 ],
-        [ 'Costa Rica', 0 ],
-        [ 'Cyprus', 0 ],
-        [ 'North Korea', 0 ],
-        [ 'Djibouti', 0 ],
-        [ 'Ecuador', 0 ],
-        [ 'Estonia', 0 ],
-        [ 'Gambia', 0 ],
-        [ 'Germany', 0 ],
-        [ 'Hungary', 0 ],
-        [ 'Iceland', 0 ],
-        [ 'Iraq', 0 ],
-        [ 'Ireland', 0 ],
-        [ 'Israel', 0 ],
-        [ 'Jamaica', 0 ],
-        [ 'Japan', 0 ],
-        [ 'Jordan', 0 ],
-        [ 'Kuwait', 0 ],
-        [ 'Kyrgyzstan', 0 ],
-        [ 'Latvia', 0 ],
-        [ 'Lebanon', 0 ],
-        [ 'Lithuania', 0 ],
-        [ 'Maldives', 0 ],
-        [ 'Malta', 0 ],
-        [ 'Monaco', 0 ],
-        [ 'Norway', 0 ],
-        [ 'Panama', 0 ],
-        [ 'Poland', 0 ],
-        [ 'Qatar', 0 ],
-        [ 'Romania', 0 ],
-        [ 'Russia', 0 ],
-        [ 'San Marino', 0 ],
-        [ 'Saudi Arabia', 0 ],
-        [ 'Seychelles', 0 ],
-        [ 'Slovakia', 0 ],
-        [ 'Slovenia', 0 ],
-        [ 'Suriname', 0 ],
-        [ 'Sweden', 0 ],
-        [ 'Syria', 0 ],
-        [ 'Tunisia', 0 ],
-        [ 'Turkmenistan', 0 ],
-        [ 'United Arab Emirates', 0 ],
-        [ 'United States of America', 0 ],
-        [ 'Australia', 1 ],
-        [ 'Eritrea', 1 ],
-        [ 'Gabon', 1 ],
-        [ 'Iran', 1 ],
-        [ 'Morocco', 1 ],
-        [ 'Namibia', 1 ],
-        [ 'Netherlands', 1 ],
-        [ 'Vanuatu', 1 ],
-        [ 'Venezuela', 1 ],
-        [ 'Comoros', 2 ],
-        [ 'El Salvador', 2 ],
-        [ 'France', 2 ],
-        [ 'Guinea-Bissau', 2 ],
-        [ 'Peru', 2 ],
-        [ 'Uruguay', 2 ],
-        [ 'Equatorial Guinea', 3 ],
-        [ 'Rwanda', 3 ],
-        [ 'Cambodia', 4 ],
-        [ 'Dominican Republic', 4 ],
-        [ 'Micronesia', 4 ],
-        [ 'Bolivia', 5 ],
-        [ 'Laos', 6 ],
-        [ 'Timor-Leste', 6 ],
-        [ 'Kiribati', 7 ],
-        [ 'Mexico', 7 ],
-        [ 'Yemen', 7 ],
-        [ 'Mali', 9 ],
-        [ 'Thailand', 9 ],
-        [ 'Congo', 12 ],
-        [ 'Malaysia', 15 ],
-        [ 'Philippines', 15 ],
-        [ 'Zimbabwe', 15 ],
-        [ 'Cameroon', 16 ],
-        [ 'Sierra Leone', 16 ],
-        [ 'Argentina', 17 ],
-        [ 'Cuba', 18 ],
-        [ 'Angola', 20 ],
-        [ 'Paraguay', 21 ],
-        [ 'Ghana', 24 ],
-        [ 'Malawi', 24 ],
-        [ 'Benin', 26 ],
-        [ 'Colombia', 26 ],
-        [ 'Egypt', 29 ],
-        [ 'Pakistan', 31 ],
-        [ 'Togo', 37 ],
-        [ 'Guinea', 43 ],
-        [ 'Papua New Guinea', 50 ],
-        [ 'Burkina Faso', 59 ],
-        [ 'Chad', 66 ],
-        [ 'China', 72 ],
-        [ 'Somalia', 73 ],
-        [ 'Sri Lanka', 81 ],
-        [ 'Niger', 88 ],
-        [ 'Uganda', 92 ],
-        [ 'Nepal', 101 ],
-        [ 'Sudan', 115 ],
-        [ 'Tanzania', 115 ],
-        [ "Côte d'Ivoire", 128 ],
-        [ 'Bangladesh', 137 ],
-        [ 'South Sudan', 152 ],
-        [ 'Myanmar', 179 ],
-        [ 'Madagascar', 285 ],
-        [ 'Ethiopia', 384 ],
-        [ 'Mozambique', 399 ],
-        [ 'Democratic Republic of the Congo', 418 ],
-        [ 'Indonesia', 628 ],
-        [ 'Brazil', 1504 ],
-        [ 'India', 1572 ],
-        [ 'Brunei', 0 ],
-        [ 'Mongolia', 0 ],
-        [ 'Solomon Islands', 3 ],
-        [ 'Vietnam', 13 ]]
-    
-    const csvData = function(data = fakeData) {
-        let string = '';
-        for (let i = 0; i < data.length; i++) {
-            string += data[i][0]+','+data[i][1]+'\n'
-        }
-        return string
-    }
-
-
-
-
         // The svg
         const svg = d3.select("svg"),
           width = svg.attr("width"),
@@ -177,17 +38,17 @@
         
         // Map and projection
         const path = d3.geoPath();
-        const projection = d3.geoMercator()
+        const projection = d3.geoNaturalEarth1()
           .scale(120)
-          .center([22,0])
+          .center([0,0])
           <!-- .translate([width / 2, height / 2]); -->
         
         // Data and color scale
         const data = d3.map();
         const colorScale = d3.scaleThreshold()
-          .domain([0,1,10,100,1000,10000,100000,1000000])
-          .range(d3.schemeReds[7]);
-        
+          .domain([-1,0,1,10,100,1000,10000,100000,100000])
+          .range(['#FFFFFF','#CCCCCC','#FFFFFF','#FFDDDD','#FCBBA1','#FC9272','#FB6A4A','#DE2D26','#A50F15','#750000']);
+        <!-- fix color scheme, but right general idea -->
         // Load external data and boot
         d3.queue()
           .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
@@ -231,7 +92,8 @@
               )
               // set the color of each country
               .attr("fill", function (d) {
-                d.total = data.get(d.id) || 0;
+                d.total = data.get(d.id);
+                if (d.total === undefined) d.total = -1;
                 return colorScale(d.total);
               })
               .style("stroke", "transparent")
