@@ -29,78 +29,7 @@
         </ul>
       </div>
 
-      <svg id="my_dataviz" width="850" height="450">
-        <!-- <script>
-          let chosenDisease = window.chosenDisease || "malaria"
-          let chosenYear = 2020
-
-          const svg = d3.select("svg"),
-            width = svg.attr("width"),
-            height = svg.attr("height");
-          
-          const path = d3.geoPath();
-          const projection = d3.geoNaturalEarth1()
-            .scale(120)
-            .center([0,0])
-          
-          const data = d3.map();
-          const colorScale = d3.scaleThreshold()
-            .domain([-1,0,1,10,100,1000,10000,100000,100000])
-            .range(['#FFFFFF','#BBBBBB','#FFFFFF','#FFDDDD','#FCBBA1','#FC9272','#FB6A4A','#DE2D26','#A50F15','#750000']);
-
-            d3.queue()
-            .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
-            .defer(d3.csv, `./src/scripts/data/${chosenDisease}.csv`, function(d) { if (d.year==chosenYear) {data.set(d.name, +d.cases)}; })
-            .await(ready);
-          
-          function ready(error, topo) {
-          
-            let mouseOver = function(d) {
-              d3.selectAll(".Country")
-                .transition()
-                .duration(200)
-                .style("opacity", .5)
-              d3.select(this)
-                .transition()
-                .duration(200)
-                .style("opacity", 1)
-                .style("stroke", "black")
-            }
-          
-            let mouseLeave = function(d) {
-              d3.selectAll(".Country")
-                .transition()
-                .duration(200)
-                .style("opacity", .8)
-              d3.select(this)
-                .transition()
-                .duration(200)
-                .style("stroke", "transparent")
-            }
-          
-            svg.append("g")
-              .selectAll("path")
-              .data(topo.features)
-              .enter()
-              .append("path")
-                // draw each country
-                .attr("d", d3.geoPath()
-                  .projection(projection)
-                )
-
-                .attr("fill", function (d) {
-                  d.total = data.get(d.id);
-                  if (d.total === undefined) d.total = -1;
-                  return colorScale(d.total);
-                })
-                .style("stroke", "transparent")
-                .attr("class", function(d){ return "Country" } )
-                .style("opacity", .8)
-                .on("mouseover", mouseOver )
-                .on("mouseleave", mouseLeave )
-              }
-        
-          </script> -->
+        <svg id="my_dataviz" width="850" height="450">
         
         </svg>
         <div id="block"></div>
@@ -112,7 +41,34 @@
   </body>
 
   <footer>
-    Select the year using this slider!
+    <br>
+    <br>
+    <br>
+    <br>
+    <ul>
+      <li id="2000">2000</li>
+      <li id="2001">2001</li>
+      <li id="2002">2002</li>
+      <li id="2003">2003</li>
+      <li id="2004">2004</li>
+      <li id="2005">2005</li>
+      <li id="2006">2006</li>
+      <li id="2007">2007</li>
+      <li id="2008">2008</li>
+      <li id="2009">2009</li>
+      <li id="2010">2010</li>
+      <li id="2011">2011</li>
+      <li id="2012">2012</li>
+      <li id="2013">2013</li>
+      <li id="2014">2014</li>
+      <li id="2015">2015</li>
+      <li id="2016">2016</li>
+      <li id="2017">2017</li>
+      <li id="2018">2018</li>
+      <li id="2019">2019</li>
+      <li id="2020">2020</li>
+      <li id="animate">Animate</li>
+    </ul>
   </footer>
 
 </html>

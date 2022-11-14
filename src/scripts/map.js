@@ -147,15 +147,15 @@ class Map {
         constructor(ele){
             this.ele = ele;
             this.year = 2020;
-            this.disease = 'malaria'
-            setInnerHTML(this.ele, htmlString())
-            // console.log(this.ele)
-            // this.ele.addEventListener("click", this.handleClick.bind(this));
+            this.disease = 'malaria';
+            setInnerHTML(this.ele, htmlString());
         }
     
         resetMap(disease,year){
-            console.log("generic string")
-            setInnerHTML(this.ele, htmlString2(disease,year))
+            this.disease = disease;
+            this.year = year;
+            setInnerHTML(this.ele, htmlString2(disease,this.year));
+            console.log(this.year)
         }
 
         // onkeydown = function() {
@@ -164,7 +164,7 @@ class Map {
         //         setInnerHTML(this.ele, htmlString2("malaria",2000)) 
         //          break;
         //         case 39:
-        //         setInnerHTML(this.ele, htmlString2("malaria",2000))
+        //         setInnerHTML(this.ele, htmlString2("malaria",2009))
         //          break;
         //     }
         // };
