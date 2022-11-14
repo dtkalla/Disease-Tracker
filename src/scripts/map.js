@@ -1,6 +1,4 @@
-let chosenDisease = 'malaria'
-
-function htmlString(chosenDisease) {return `<svg id="my_dataviz" width="850" height="450">
+function htmlString() {return `<svg id="my_dataviz" width="850" height="450">
 <script>
   const svg = d3.select("svg"),
     width = svg.attr("width"),
@@ -18,7 +16,7 @@ function htmlString(chosenDisease) {return `<svg id="my_dataviz" width="850" hei
 
   d3.queue()
     .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
-    .defer(d3.csv, \`./src/scripts/data/${chosenDisease}.csv\`, function(d) { if (d.year==2020) {data.set(d.name, +d.cases)}; })
+    .defer(d3.csv, \`./src/scripts/data/malaria.csv\`, function(d) { if (d.year==2020) {data.set(d.name, +d.cases)}; })
     .await(ready);
   
   function ready(error, topo) {
@@ -73,12 +71,12 @@ function htmlString(chosenDisease) {return `<svg id="my_dataviz" width="850" hei
 
 </svg>`}
 
-function htmlString2(chosenDisease) {return `<svg id="my_dataviz" width="850" height="450">
+function htmlString2(chosenDisease,chosenYear) {return `<svg id="my_dataviz" width="850" height="450">
 <script>
   
   d3.queue()
     .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
-    .defer(d3.csv, \`./src/scripts/data/${chosenDisease}.csv\`, function(d) { if (d.year==2020) {data.set(d.name, +d.cases)}; })
+    .defer(d3.csv, \`./src/scripts/data/${chosenDisease}.csv\`, function(d) { if (d.year==\`${chosenYear}\`) {data.set(d.name, +d.cases)}; })
     .await(ready);
   
   function ready(error, topo) {
@@ -145,17 +143,33 @@ var setInnerHTML = function(elm, html) {
     });
   }
 
-class Disease {
+class Map {
         constructor(ele){
             this.ele = ele;
-            setInnerHTML(this.ele, htmlString(chosenDisease))
-            this.ele.addEventListener("click", this.handleClick.bind(this));
+            this.year = 2020;
+            this.disease = 'malaria'
+            setInnerHTML(this.ele, htmlString())
+            // console.log(this.ele)
+            // this.ele.addEventListener("click", this.handleClick.bind(this));
         }
     
-        handleClick(){
-            setInnerHTML(this.ele, htmlString2("tuberculosis"))
+        resetMap(disease,year){
+            console.log("generic string")
+            setInnerHTML(this.ele, htmlString2(disease,year))
         }
+
+        // onkeydown = function() {
+        //     switch (window.event.keyCode) {
+        //         case 37:
+        //         setInnerHTML(this.ele, htmlString2("malaria",2000)) 
+        //          break;
+        //         case 39:
+        //         setInnerHTML(this.ele, htmlString2("malaria",2000))
+        //          break;
+        //     }
+        // };
     }
-    
-    export default Disease;
+
+
+    export default Map;
 

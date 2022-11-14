@@ -13,6 +13,7 @@ svg {
     justify-content: flex-start;
     position: absolute;
     top: 50px;
+    z-index: -1;
 }
 
 div#main {
