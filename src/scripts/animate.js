@@ -16,8 +16,9 @@ class Animate {
               now = Date.now();
             }
         }
-        for (let i = 2000; i < 2022; i++) {
+        for (let i = 2000; i < 2021; i++) {
             this.map.resetMap(this.map.disease,i);
+            
         }
     }
 }

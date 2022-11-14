@@ -16,27 +16,35 @@ svg {
   justify-content: flex-start;
   position: absolute;
   top: 50px;
-  z-index: -1;
+  left: 40px;
+  width: 900px;
+  height: 500px;
 }
 
 div#main {
   display: flex;
-  justify-content: space-between;
 }
 
 div#block {
-  width: 1200px;
+  width: 1700px;
 }
 
 div#disease-options {
   display: flex;
-  justify-content: flex-start;
   width: 400px;
+  z-index: 1;
+  list-style: none;
+}
+div#disease-options ul li {
+  justify-content: center;
 }
 
 div#context {
   display: flex;
-  justify-content: flex-end;
+  position: absolute;
+  left: 950px;
+  right: 50px;
+  max-width: 300px;
 }
 
 html {
@@ -47,8 +55,11 @@ footer ul {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  position: absolute;
+  top: 500px;
 }
 footer ul li {
   padding: 10px;
   list-style: none;
+  z-index: 1;
 }

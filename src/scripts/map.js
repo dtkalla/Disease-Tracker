@@ -1,4 +1,4 @@
-function htmlString() {return `<svg id="my_dataviz" width="850" height="450">
+function htmlString() {return `<svg id="my_dataviz">
 <script>
   const svg = d3.select("svg"),
     width = svg.attr("width"),
@@ -6,13 +6,13 @@ function htmlString() {return `<svg id="my_dataviz" width="850" height="450">
   
   const path = d3.geoPath();
   const projection = d3.geoNaturalEarth1()
-    .scale(120)
+    .scale(150)
     .center([0,0])
   
   const data = d3.map();
   const colorScale = d3.scaleThreshold()
     .domain([-1,0,1,10,100,1000,10000,100000,100000])
-    .range(['#FFFFFF','#BBBBBB','#FFFFFF','#FFDDDD','#FCBBA1','#FC9272','#FB6A4A','#DE2D26','#A50F15','#750000']);
+    .range(['#FFFFFF','#888888','#EEEEEE','#FFDDDD','#FCBBA1','#FC9272','#FB6A4A','#DE2D26','#A50F15','#750000']);
 
   d3.queue()
     .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
@@ -26,6 +26,7 @@ function htmlString() {return `<svg id="my_dataviz" width="850" height="450">
         .transition()
         .duration(200)
         .style("opacity", .5)
+        .style("stroke", "black")
       d3.select(this)
         .transition()
         .duration(200)
@@ -38,6 +39,7 @@ function htmlString() {return `<svg id="my_dataviz" width="850" height="450">
         .transition()
         .duration(200)
         .style("opacity", .8)
+        .style("stroke", "transparent")
       d3.select(this)
         .transition()
         .duration(200)
@@ -86,6 +88,7 @@ function htmlString2(chosenDisease,chosenYear) {return `<svg id="my_dataviz" wid
         .transition()
         .duration(200)
         .style("opacity", .5)
+        .style("stroke", "black")
       d3.select(this)
         .transition()
         .duration(200)
@@ -98,6 +101,7 @@ function htmlString2(chosenDisease,chosenYear) {return `<svg id="my_dataviz" wid
         .transition()
         .duration(200)
         .style("opacity", .8)
+        .style("stroke", "transparent")
       d3.select(this)
         .transition()
         .duration(200)
