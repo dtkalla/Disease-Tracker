@@ -237,10 +237,12 @@ for (let i = 0; i < codeNameMatch.length; i++) {
 
 function nulldata() {
     for (let i = 0; i < codeNameMatch.length; i++) {
-        console.log(codeNameMatch[i][0]+',-1,2020')
+        for (let j = 2019; j < 2022; j++) {
+            console.log(codeNameMatch[i][0]+',0,'+j)
+        }
     }
 }
 
-// nulldata()
+nulldata()
 
 module.exports = conversionHash;
