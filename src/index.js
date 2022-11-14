@@ -1,11 +1,9 @@
-import Map from "./scripts/map";
-// const fetch = require('node-fetch');
-
+import Disease from "./scripts/map";
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    const data = document.getElementById("main");
-    new Map(data);
+    const data = document.getElementById("tuberculosis");
+    new Disease(data);
 });
 
 

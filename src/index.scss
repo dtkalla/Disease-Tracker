@@ -11,12 +11,28 @@ body {
 svg {
     display: flex;
     justify-content: flex-start;
-    position: static;
+    position: absolute;
+    top: 50px;
 }
 
-div {
-    // display: flex;
-    // justify-content: flex-start;
+div#main {
+    display: flex;
+    justify-content: space-between;
+}
+
+div#block {
+    width: 1200px;
+}
+
+div#disease-options {
+    display: flex;
+    justify-content: flex-start;
+    width: 400px;
+}
+
+div#context {
+    display: flex;
+    justify-content: flex-end;
 }
 
 html {

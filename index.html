@@ -15,10 +15,23 @@
   </head>
 
   <body>
+
     <div id="main">
+      <div id="disease-options">
+        <ul>
+          <h3>Press these buttons to select a disease</h3>
+          <li id="malaria">Malaria</li>
+          <li id ="tuberculosis">Tuberculosis</li>
+          <li id="HIV">HIV</li>
+          <li id="Polio">Polio</li>
+          <li id="GuineaWorm">Guinea Worm (Dracunculiasis)</li>
+          <li id="Leprosy">Leprosy</li>
+        </ul>
+      </div>
+
       <svg id="my_dataviz" width="850" height="450">
         <script>
-          let disease = "malaria"
+          let chosenDisease = window.chosenDisease || "malaria"
           let chosenYear = 2020
 
           const svg = d3.select("svg"),
@@ -37,7 +50,7 @@
 
             d3.queue()
             .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
-            .defer(d3.csv, `./src/scripts/data/${disease}.csv`, function(d) { if (d.year==chosenYear) {data.set(d.name, +d.cases)}; })
+            .defer(d3.csv, `./src/scripts/data/${chosenDisease}.csv`, function(d) { if (d.year==chosenYear) {data.set(d.name, +d.cases)}; })
             .await(ready);
           
           function ready(error, topo) {
@@ -90,20 +103,12 @@
           </script>
         
         </svg>
+        <div id="block"></div>
+
+        <div id="context">This is a box to give you some context about malaria.  It's one of the leading causes of death for children under 5 but cheap to prevent and treat, etc.</div>
     </div>
-    <div>
-      Press these buttons to select a disease
-      <ul>
-        <li>Malaria</li>
-        <li>Tuberculosis</li>
-        <li>HIV</li>
-        <li>Polio</li>
-        <li>Guinea Worm (Dracunculiasis)</li>
-        <li>Leprosy</li>
-      </ul>
-    </div>
+
     
-    <div>This is a box to give you some context about malaria.  It's one of the leading causes of death for children under 5 but cheap to prevent and treat, etc.</div>
   </body>
 
   <footer>

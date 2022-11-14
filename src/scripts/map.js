@@ -71,16 +71,18 @@
 
 // </svg>`
 
-class Map {
+class Disease {
         constructor(ele){
             this.ele = ele;
-    
+            window.chosenDisease = "malaria"
             this.ele.addEventListener("click", this.handleClick.bind(this));
         }
     
         handleClick(){
-            this.disease = "tuberculosis";
+            window.chosenDisease = "tuberculosis";
+            chosenDisease = "tuberculosis"
         }
     }
     
-    export default Map;
+    export default Disease;
+
