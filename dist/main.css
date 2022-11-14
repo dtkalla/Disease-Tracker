@@ -25,18 +25,18 @@ div#main {
   display: flex;
 }
 
-div#block {
-  width: 1700px;
-}
-
 div#disease-options {
   display: flex;
-  width: 400px;
+  justify-content: flex-start;
+  width: 200px;
   z-index: 1;
-  list-style: none;
 }
-div#disease-options ul li {
+
+#disease-options ul li {
+  display: flex;
   justify-content: center;
+  list-style: none;
+  padding: 10px;
 }
 
 div#context {
@@ -44,7 +44,9 @@ div#context {
   position: absolute;
   left: 950px;
   right: 50px;
-  max-width: 300px;
+  top: 100px;
+  max-width: 250px;
+  min-width: 150px;
 }
 
 html {
