@@ -235,5 +235,12 @@ for (let i = 0; i < codeNameMatch.length; i++) {
     conversionHash[codeNameMatch[i][0]] = codeNameMatch[i][1]
 }
 
+function nulldata() {
+    for (let i = 0; i < codeNameMatch.length; i++) {
+        console.log(codeNameMatch[i][0]+',-1,2020')
+    }
+}
+
+// nulldata()
 
 module.exports = conversionHash;

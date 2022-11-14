@@ -154,8 +154,8 @@ class Map {
         resetMap(disease,year){
             this.disease = disease;
             this.year = year;
+            setInnerHTML(this.ele, htmlString2("nulldata",2020))
             setInnerHTML(this.ele, htmlString2(disease,this.year));
-            console.log(this.year)
         }
 
         // onkeydown = function() {
