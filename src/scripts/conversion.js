@@ -243,6 +243,6 @@ function nulldata() {
     }
 }
 
-nulldata()
+console.log(conversionHash)
 
 module.exports = conversionHash;
