@@ -34,7 +34,9 @@ function htmlString() {return `<svg id="my_dataviz">
         .transition()
         .duration(200)
         .style("opacity", 1)
-        .style("stroke", "black")
+        .style("stroke", "black");
+
+      console.log(d.total === -1 ? "No data" : d.total)
     }
   
     let mouseLeave = function(d) {
@@ -168,16 +170,6 @@ class Map {
             this.sidebar.resetSidebar(disease,year);
         }
 
-        // onkeydown = function() {
-        //     switch (window.event.keyCode) {
-        //         case 37:
-        //         setInnerHTML(this.ele, htmlString2("malaria",2000)) 
-        //          break;
-        //         case 39:
-        //         setInnerHTML(this.ele, htmlString2("malaria",2009))
-        //          break;
-        //     }
-        // };
     }
 
 

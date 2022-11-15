@@ -1,7 +1,7 @@
 import Button from "./scripts/button.js";
 import Map from "./scripts/map.js";
 import Year from "./scripts/year.js";
-import Animate from "./scripts/animate.js"
+// import Animate from "./scripts/animate.js"
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
     new Button(data2,map,"malaria");
     const data3 = document.getElementById("HIV");
     new Button(data3,map,"HIV");
+    const data2019 = document.getElementById("covid19");
+    new Button(data2019,map,"covid19");
     const data4 = document.getElementById("guineaWorm");
     new Button(data4,map,"guineaworm");
     const data5 = document.getElementById("polio");
@@ -64,11 +66,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const data20 = document.getElementById("2020");
     new Year(data20,map,2020);
 
-    const animate = document.getElementById("animate");
-    new Animate(animate,map);
+    // const animate = document.getElementById("animate");
+    // new Animate(animate,map);
 
-    const sidebar = document.getElementById("context");
-    new Sidebar(sidebar,map)
+
 });
 
 

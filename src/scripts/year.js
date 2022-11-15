@@ -1,5 +1,3 @@
-import Map from "./map.js";
-
 class Year {
     constructor(ele,map,year){
         this.ele = ele;
