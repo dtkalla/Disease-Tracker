@@ -1,5 +1,3 @@
-import Map from "./map.js";
-
 class Button {
     constructor(ele,map,disease){
         this.ele = ele;

@@ -148,30 +148,22 @@ var setInnerHTML = function(elm, html) {
   }
 
 class Map {
-        constructor(ele){
+        constructor(ele,sidebar){
             this.ele = ele;
             this.year = 2020;
             this.disease = 'malaria';
             setInnerHTML(this.ele, htmlString());
+            this.sidebar = sidebar
+            console.log(this.sidebar)
         }
     
         resetMap(disease,year){
             this.disease = disease;
             this.year = year;
-            setInnerHTML(this.ele, htmlString2("nulldata",2020))
+            setInnerHTML(this.ele, htmlString2("nulldata",2020));
             setInnerHTML(this.ele, htmlString2(disease,this.year));
+            this.sidebar.resetSidebar(disease,year);
         }
-
-        // onkeydown = function() {
-        //     switch (window.event.keyCode) {
-        //         case 37:
-        //         setInnerHTML(this.ele, htmlString2("malaria",2000)) 
-        //          break;
-        //         case 39:
-        //         setInnerHTML(this.ele, htmlString2("malaria",2009))
-        //          break;
-        //     }
-        // };
     }
 
 

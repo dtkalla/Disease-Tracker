@@ -1,5 +1,3 @@
-import Map from "./map.js";
-
 class Animate {
     constructor(ele,map){
         this.ele = ele;
