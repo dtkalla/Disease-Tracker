@@ -65,3 +65,16 @@ footer ul li {
   list-style: none;
   z-index: 1;
 }
+
+button {
+  border: none;
+  background-color: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+button:hover {
+  background: #eee;
+  color: black;
+}

@@ -18,7 +18,7 @@ class Animate {
         }
         for (let i = 2000; i < 2021; i++) {
             this.map.resetMap(this.map.disease,i);
-            
+            wait(100)
         }
     }
 }
