@@ -1,3 +1,6 @@
+import Sidebar from "./sidebar.js";
+
+
 function htmlString() {return `<svg id="my_dataviz">
 <script>
   const svg = d3.select("svg"),
@@ -148,13 +151,13 @@ var setInnerHTML = function(elm, html) {
   }
 
 class Map {
-        constructor(ele,sidebar){
+        constructor(ele){
             this.ele = ele;
             this.year = 2020;
             this.disease = 'malaria';
             setInnerHTML(this.ele, htmlString());
-            this.sidebar = sidebar
-            console.log(this.sidebar)
+            const sidebar = document.getElementById("context");
+            this.sidebar = new Sidebar(sidebar)
         }
     
         resetMap(disease,year){
@@ -164,6 +167,17 @@ class Map {
             setInnerHTML(this.ele, htmlString2(disease,this.year));
             this.sidebar.resetSidebar(disease,year);
         }
+
+        // onkeydown = function() {
+        //     switch (window.event.keyCode) {
+        //         case 37:
+        //         setInnerHTML(this.ele, htmlString2("malaria",2000)) 
+        //          break;
+        //         case 39:
+        //         setInnerHTML(this.ele, htmlString2("malaria",2009))
+        //          break;
+        //     }
+        // };
     }
 
 

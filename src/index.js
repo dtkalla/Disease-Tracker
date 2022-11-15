@@ -2,15 +2,11 @@ import Button from "./scripts/button.js";
 import Map from "./scripts/map.js";
 import Year from "./scripts/year.js";
 import Animate from "./scripts/animate.js"
-import Sidebar from "./scripts/sidebar.js";
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    const databar = document.getElementById("context");
-    const sidebar = new Sidebar(databar)
-    
     const data = document.getElementById("my_dataviz");
-    const map = new Map(data,sidebar);
+    const map = new Map(data);
 
     const data1 = document.getElementById("tuberculosis");
     new Button(data1,map,"tuberculosis");
@@ -71,6 +67,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const animate = document.getElementById("animate");
     new Animate(animate,map);
 
+    const sidebar = document.getElementById("context");
+    new Sidebar(sidebar,map)
 });
 
 
