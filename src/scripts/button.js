@@ -1,10 +1,9 @@
 class Button {
     constructor(ele,map,disease){
         this.ele = ele;
-        this.map = map
+        this.map = map;
         this.disease = disease;
         this.ele.addEventListener("click", this.handleClick.bind(this));
-
     }
 
     handleClick(){

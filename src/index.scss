@@ -38,7 +38,7 @@ div#disease-options {
 
 #disease-options ul {
     position: relative;
-    top: -40px;
+    top: -60px;
 }
 
 #disease-options ul li {
@@ -64,6 +64,11 @@ html {
     color-scheme: dark;
 }
 
+#tooltip {
+    color: blue;
+    z-index: 2;
+}
+
 footer ul {
     display: flex;
     flex-direction: row;
@@ -71,11 +76,15 @@ footer ul {
     position: absolute;
     top: 500px;
     li {
-        padding: 10px;
         list-style: none;
         z-index: 1;
-    }
+        button {
+            padding: 10px;
+        }
+    }   
 }
+
+
 
 button {
     border: none;
@@ -83,6 +92,7 @@ button {
     font-size: 16px;
     cursor: pointer;
     display: inline-block;
+    font-weight: 700;
   }
   
   button:hover {

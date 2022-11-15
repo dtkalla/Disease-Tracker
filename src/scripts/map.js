@@ -6,6 +6,16 @@ function htmlString() {return `<svg id="my_dataviz">
   const svg = d3.select("svg"),
     width = svg.attr("width"),
     height = svg.attr("height");
+
+  let tooltip = d3.select("#tooltip")
+    .style("opacity", 0)
+    .attr("class", "tooltip")
+    .style("background-color", "white")
+    .style("border", "solid")
+    .style("border-width", "1px")
+    .style("border-radius", "5px")
+    .style("padding", "5px")
+    .style("position", "absolute")
   
   const path = d3.geoPath();
   const projection = d3.geoNaturalEarth1()
@@ -39,7 +49,6 @@ function htmlString() {return `<svg id="my_dataviz">
         .style("stroke", "black");
         
 
-      console.log(d.total === -1 ? "No data" : d.total);
       const conversionHash = {
         ABW: 'Aruba',
         AFG: 'Afghanistan',
@@ -102,6 +111,7 @@ function htmlString() {return `<svg id="my_dataviz">
         ECU: 'Ecuador',
         EGY: 'Egypt',
         ERI: 'Eritrea',
+        ESH: 'Western Sahara',
         ESP: 'Spain',
         EST: 'Estonia',
         ETH: 'Ethiopia',
@@ -271,8 +281,11 @@ function htmlString() {return `<svg id="my_dataviz">
         ZMB: 'Zambia',
         ZWE: 'Zimbabwe'
       }
-
-      console.log(conversionHash[d.id])
+      tooltip
+      .style("opacity", 0.8)
+      .html(d.total == -1 ? "No data" : conversionHash[d.id] + ": " + d.total)
+      .style("left", (d3.event.pageX + 30) + "px")  
+      .style("top", (d3.event.pageY - 30) + "px");
     }
   
     let mouseLeave = function(d) {
@@ -285,6 +298,9 @@ function htmlString() {return `<svg id="my_dataviz">
         .transition()
         .duration(200)
         .style("stroke", "transparent")
+
+      tooltip
+        .style("opacity", 0)
     }
     function eventHandler(e) {
       const country = e.target;
@@ -314,7 +330,6 @@ function htmlString() {return `<svg id="my_dataviz">
         .on("mouseleave", mouseLeave )
       }
 
-      
   </script>
 
 </svg>`}
@@ -326,56 +341,6 @@ function htmlString2(chosenDisease,chosenYear) {return `<svg id="my_dataviz" wid
     .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
     .defer(d3.csv, \`./src/scripts/data/${chosenDisease}.csv\`, function(d) { if (d.year==\`${chosenYear}\`) {data.set(d.name, +d.cases)}; })
     .await(ready);
-  
-  function ready(error, topo) {
-  
-    let mouseOver = function(d) {
-      d3.selectAll(".Country")
-        .transition()
-        .duration(200)
-        .style("opacity", .5)
-        .style("stroke", "black")
-      d3.select(this)
-        .transition()
-        .duration(200)
-        .style("opacity", 1)
-        .style("stroke", "black")
-    }
-  
-    let mouseLeave = function(d) {
-      d3.selectAll(".Country")
-        .transition()
-        .duration(200)
-        .style("opacity", .8)
-        .style("stroke", "transparent")
-      d3.select(this)
-        .transition()
-        .duration(200)
-        .style("stroke", "transparent")
-    }
-  
-    svg.append("g")
-      .selectAll("path")
-      .data(topo.features)
-      .enter()
-      .append("path")
-        // draw each country
-        .attr("d", d3.geoPath()
-          .projection(projection)
-        )
-        // set the color of each country
-        .attr("fill", function (d) {
-          d.total = data.get(d.id);
-          if (d.total === undefined) d.total = -1;
-          return colorScale(d.total);
-        })
-        .style("stroke", "transparent")
-        .attr("class", function(d){ return "Country" } )
-        .style("opacity", .8)
-        .on("mouseover", mouseOver )
-        .on("mouseleave", mouseLeave )
-      }
-
       
   </script>
 
@@ -398,14 +363,40 @@ class Map {
             this.ele = ele;
             this.year = 2020;
             this.disease = 'malaria';
+            // this.min = 2000;
+            // this.max = 2020;
             setInnerHTML(this.ele, htmlString());
             const sidebar = document.getElementById("context");
             this.sidebar = new Sidebar(sidebar)
         }
+
+       
     
         resetMap(disease,year){
+          // const minHash = {
+          //   malaria: 2000;
+          //   covid19: 2020;
+          //   tuberculosis: 2000;
+          //   HIV: 2000;
+          //   polio: 2016;
+          //   guineaworm: 1989;
+          //   leprosy: 2012;
+          // }
+  
+          // const maxHash = {
+          //   malaria: 2020;
+          //   covid19: 2020;
+          //   tuberculosis: 2021;
+          //   HIV: 2021;
+          //   polio: 2021;
+          //   guineaworm: 2021;
+          //   leprosy: 2021;
+          // }
             this.disease = disease;
             this.year = year;
+            // this.min = minHash[disease];
+            // this.max = this.maxHash[disease];
+            // console.log([this.min,this.max]);
             setInnerHTML(this.ele, htmlString2("nulldata",2020));
             setInnerHTML(this.ele, htmlString2(disease,this.year));
             this.sidebar.resetSidebar(disease,year);
