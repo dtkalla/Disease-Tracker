@@ -14,8 +14,8 @@ function htmlString() {return `<svg id="my_dataviz">
   
   const data = d3.map();
   const colorScale = d3.scaleThreshold()
-    .domain([-1,0,1,10,100,1000,10000,100000,100000])
-    .range(['#FFFFFF','#888888','#EEEEEE','#FFDDDD','#FCBBA1','#FC9272','#FB6A4A','#DE2D26','#A50F15','#750000']);
+    .domain([-1,0,1,4,18,79,341,1465,6300,27072,116345])
+    .range(['#FFFFFF','#888888','#EEEEEE', '#FFF5F0', '#FEE0D2', '#FCBBA1', '#FC9272', '#FB6A4A', '#EF3B2C', '#CB181D', '#A50F15', '#67000D']);
 
   d3.queue()
     .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
