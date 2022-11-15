@@ -104,4 +104,7 @@ source-links ul {
     flex-direction: row;
     position: relative;
     top: 20px;
+    li {
+        padding: 10px;
+    }
 }

@@ -98,3 +98,6 @@ source-links ul {
   position: relative;
   top: 20px;
 }
+source-links ul li {
+  padding: 10px;
+}

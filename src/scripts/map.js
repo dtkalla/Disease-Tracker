@@ -363,8 +363,8 @@ class Map {
             this.ele = ele;
             this.year = 2020;
             this.disease = 'malaria';
-            // this.min = 2000;
-            // this.max = 2020;
+            this.min = 2000;
+            this.max = 2020;
             setInnerHTML(this.ele, htmlString());
             const sidebar = document.getElementById("context");
             this.sidebar = new Sidebar(sidebar)
@@ -373,37 +373,45 @@ class Map {
        
     
         resetMap(disease,year){
-          // const minHash = {
-          //   malaria: 2000;
-          //   covid19: 2020;
-          //   tuberculosis: 2000;
-          //   HIV: 2000;
-          //   polio: 2016;
-          //   guineaworm: 1989;
-          //   leprosy: 2012;
-          // }
-  
-          // const maxHash = {
-          //   malaria: 2020;
-          //   covid19: 2020;
-          //   tuberculosis: 2021;
-          //   HIV: 2021;
-          //   polio: 2021;
-          //   guineaworm: 2021;
-          //   leprosy: 2021;
-          // }
             this.disease = disease;
             this.year = year;
-            // this.min = minHash[disease];
-            // this.max = this.maxHash[disease];
-            // console.log([this.min,this.max]);
+            if (disease == 'polio') {
+              this.min = 2016;
+              this.max = 2021;
+            } else if (disease == 'leprosy') {
+              this.min = 2012;
+              this.max = 2021;
+            } else {
+              if (disease == 'covid19') {
+                this.min = 2020;
+                this.max = 2020;
+              } else if (disease == 'guineaworm') {
+                this.min = 1989;
+                this.max = 2021;
+              } else {
+                if (disease == 'malaria') {
+                  this.min = 2000;
+                  this.max = 2020;
+                } else {
+                  this.min = 2000;
+                  this.max = 2021;
+                }
+              }
+            }
+            for (let i = 1989; i <= 2021; i++) {
+              if (i < this.min || i > this.max) {
+                document.getElementById(String(i)).innerHTML = ''
+              } else {
+                document.getElementById(String(i)).innerHTML = `<button>${i}</button>`
+              }
+            }
             setInnerHTML(this.ele, htmlString2("nulldata",2020));
+            if (this.year > this.max) this.year = this.max;
+            if (this.year < this.min) this.year = this.min;
             setInnerHTML(this.ele, htmlString2(disease,this.year));
-            this.sidebar.resetSidebar(disease,year);
+            this.sidebar.resetSidebar(disease,this.year);
         }
 
     }
 
-
     export default Map;
-

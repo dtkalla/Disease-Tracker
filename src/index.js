@@ -23,6 +23,28 @@ document.addEventListener("DOMContentLoaded", () => {
     const data6 = document.getElementById("leprosy");
     new Button(data6,map,"leprosy");
 
+    const data89 = document.getElementById("1989");
+    new Year(data89,map,1989);
+    const data90 = document.getElementById("1990");
+    new Year(data90,map,1990);
+    const data91 = document.getElementById("1991");
+    new Year(data91,map,1991);
+    const data92 = document.getElementById("1992");
+    new Year(data92,map,1992);
+    const data93 = document.getElementById("1993");
+    new Year(data93,map,1993);
+    const data94 = document.getElementById("1994");
+    new Year(data94,map,1994);
+    const data95 = document.getElementById("1995");
+    new Year(data95,map,1995);
+    const data96 = document.getElementById("1996");
+    new Year(data96,map,1996);
+    const data97 = document.getElementById("1997");
+    new Year(data97,map,1997);
+    const data98 = document.getElementById("1998");
+    new Year(data98,map,1998);
+    const data99 = document.getElementById("1999");
+    new Year(data99,map,1999);
     const data00 = document.getElementById("2000");
     new Year(data00,map,2000);
     const data01 = document.getElementById("2001");
@@ -65,7 +87,8 @@ document.addEventListener("DOMContentLoaded", () => {
     new Year(data19,map,2019);
     const data20 = document.getElementById("2020");
     new Year(data20,map,2020);
-
+    const data21 = document.getElementById("2021");
+    new Year(data21,map,2021);
     // const animate = document.getElementById("animate");
     // new Animate(animate,map);
 

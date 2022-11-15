@@ -6,18 +6,17 @@ class Year {
         this.text = this.ele.innerHTML;
         this.ele.addEventListener("click", this.handleClick.bind(this));
     }
-    turnOn() {
-        this.ele.innerHTML = this.text
-    }
+    
+    // turnOn() {
+    //     this.ele.innerHTML = this.text
+    // }
 
-    turnOff() {
-        this.ele.innerHTML = `<div id="off"></div>`
-    }
+    // turnOff() {
+    //     this.ele.innerHTML = `<div id="off"></div>`
+    // }
 
     handleClick(){
         this.map.resetMap(this.map.disease,this.year);
-        this.turnOff();
-        // this.turnOn();
     }
 }
 
