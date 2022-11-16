@@ -1,3 +1,5 @@
+// Can't get this feature working yet, but I haven't given up!  For now, not in use.
+
 class Animate {
     constructor(ele,map){
         this.ele = ele;

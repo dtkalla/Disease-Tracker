@@ -235,13 +235,6 @@ for (let i = 0; i < codeNameMatch.length; i++) {
     conversionHash[codeNameMatch[i][0]] = codeNameMatch[i][1]
 }
 
-function nulldata() {
-    for (let i = 0; i < codeNameMatch.length; i++) {
-        for (let j = 2019; j < 2022; j++) {
-            console.log(codeNameMatch[i][0]+',0,'+j)
-        }
-    }
-}
 
 console.log(conversionHash)
 
