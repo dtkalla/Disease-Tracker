@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const data = document.getElementById("my_dataviz");
     const map = new Map(data);
     const dataCopy = document.getElementById("copy");
-    const mapCopy = new Map(dataCopy);
+    new Map(dataCopy);
 
     const data1 = document.getElementById("tuberculosis");
     new Button(data1,map,"tuberculosis");
