@@ -1,3 +1,6 @@
+// Unncessary, but I'm new to JavaScript and have referred to this
+// file multiple times
+
 // class Example {
 //     constructor(ele){
 //         this.ele = ele;
