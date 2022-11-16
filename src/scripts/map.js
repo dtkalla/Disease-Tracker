@@ -320,7 +320,7 @@ function htmlString() {return `<svg id="my_dataviz">
         // set the color of each country
         .attr("fill", function (d) {
           d.total = data.get(d.id);
-          if (d.total === undefined) d.total = -1;
+          if (d.total === undefined || d.total == null) d.total = -1;
           return colorScale(d.total);
         })
         .style("stroke", "transparent")
@@ -408,6 +408,7 @@ class Map {
             setInnerHTML(this.ele, htmlString2("nulldata",2020));
             if (this.year > this.max) this.year = this.max;
             if (this.year < this.min) this.year = this.min;
+            setInnerHTML(this.ele, htmlString2(disease,this.year));
             setInnerHTML(this.ele, htmlString2(disease,this.year));
             this.sidebar.resetSidebar(disease,this.year);
         }
