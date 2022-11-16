@@ -213,6 +213,14 @@ class Map {
             setInnerHTML(this.ele, htmlString());
             const sidebar = document.getElementById("context");
             this.sidebar = new Sidebar(sidebar)
+            let slider = document.getElementById("myRange");
+            console.log(this)
+            slider.map = this
+            this.slider = slider
+
+            slider.oninput = function() {
+              this.map.resetMap(this.map.disease,this.value);
+            }
         }
 
        
@@ -242,19 +250,16 @@ class Map {
                 }
               }
             }
-            for (let i = 1989; i <= 2021; i++) {
-              if (i < this.min || i > this.max) {
-                document.getElementById(String(i)).innerHTML = ''
-              } else {
-                document.getElementById(String(i)).innerHTML = `<button>${i}</button>`
-              }
-            }
             setInnerHTML(this.ele, htmlString2("nulldata",2020));
             if (this.year > this.max) this.year = this.max;
             if (this.year < this.min) this.year = this.min;
             setInnerHTML(this.ele, htmlString2(disease,this.year));
-            setInnerHTML(this.ele, htmlString2(disease,this.year));
+            // setInnerHTML(this.ele, htmlString2(disease,this.year));
             this.sidebar.resetSidebar(disease,this.year);
+            this.slider.disease = this.disease;
+            this.slider.min = this.min;
+            this.slider.max = this.max;
+            this.slider.value = this.year;
         }
     }
 

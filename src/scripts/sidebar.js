@@ -67,10 +67,10 @@ function htmlString2(disease,year) {
     } else {
         return `<h3>COVID-19 ${year}</h3>
         <text>
-        COVID-19 paragraph 1
+        You know about COVID-19!
         <br>
         <br>
-        COVID-19 paragraph 2
+        
         </text>` 
     }
     }}

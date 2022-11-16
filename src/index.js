@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
     new Year(data21,map,2021);
     // const animate = document.getElementById("animate");
     // new Animate(animate,map);
-
+    
 
 });
 
