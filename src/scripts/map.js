@@ -245,7 +245,6 @@ class Map {
     // setInnerHTML(this.ele, htmlString2("nulldata",2020));
     if (this.year > this.max) this.year = this.max;
     if (this.year < this.min) this.year = this.min;
-    let newMap = this.map
     setInnerHTML(this.ele, htmlString2(disease, this.year));
     this.sidebar.resetSidebar(this.disease, this.year);
     this.slider.disease = disease;
