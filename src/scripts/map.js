@@ -2,9 +2,7 @@ import Sidebar from "./sidebar.js";
 
 function htmlString() {return `<svg id="my_dataviz">
 <script>
-  const svg = d3.select("svg"),
-    width = svg.attr("width"),
-    height = svg.attr("height");
+  const svg = d3.select("svg");
 
   let tooltip = d3.select("#tooltip")
     .style("opacity", 0)

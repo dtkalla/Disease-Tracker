@@ -21,13 +21,10 @@ svg {
   height: 500px;
 }
 
-div#main {
-  display: flex;
-}
-
 div#disease-options {
   display: flex;
   justify-content: flex-start;
+  position: relative;
   width: 200px;
   z-index: 1;
 }
@@ -48,10 +45,11 @@ div#disease-options {
   display: flex;
   flex-direction: column;
   position: absolute;
+  justify-content: flex-end;
   left: 950px;
   right: 50px;
   top: 80px;
-  max-width: 250px;
+  max-width: 400px;
   min-width: 185px;
 }
 
@@ -100,4 +98,9 @@ source-links ul {
 }
 source-links ul li {
   padding: 10px;
+}
+
+body#margin {
+  min-width: 0px;
+  max-width: 200px;
 }
