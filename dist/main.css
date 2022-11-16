@@ -19,6 +19,10 @@ svg {
   left: 40px;
   width: 900px;
   height: 500px;
+  z-index: 0;
+}
+svg #copy {
+  z-index: -0.05;
 }
 
 div#disease-options {
@@ -109,6 +113,7 @@ body#margin {
   width: 600px;
   position: relative;
   left: 250px;
+  top: 10px;
 }
 
 .slider {
@@ -126,14 +131,6 @@ body#margin {
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  background: #04AA6D;
-  cursor: pointer;
-}
-
-.slider::-moz-range-thumb {
   width: 25px;
   height: 25px;
   border-radius: 50%;

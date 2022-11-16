@@ -1,6 +1,7 @@
 import Sidebar from "./sidebar.js";
 
-function htmlString() {return `<svg id="my_dataviz">
+function htmlString() {
+  return `<svg id="my_dataviz">
 <script>
   const svg = d3.select("svg");
 
@@ -160,107 +161,98 @@ function htmlString() {return `<svg id="my_dataviz">
         .on("mouseleave", mouseLeave )
       }
 
-      var legend_x = width
-      var legend_y = height - 30
-      svg.append("g")
-        .attr("class", "legendQuant")
-        .attr("transform", "translate(" + legend_x + "," + legend_y+")");
-  
-    var legend = d3.legendColor()
-        .labels(labels)
-        .title("Population")
-        .scale(colorScale)
-      
-      
-       svg.select(".legendQuant")
-        .call(legend);
 
   </script>
 
 </svg>`}
 
-function htmlString2(chosenDisease,chosenYear) {return `<svg id="my_dataviz" width="850" height="450">
+function htmlString2(chosenDisease, chosenYear) {
+  return `<svg id="my_dataviz" width="850" height="450">
 <script>
   
   d3.queue()
     .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
     .defer(d3.csv, \`./src/scripts/data/${chosenDisease}.csv\`, function(d) { if (d.year==\`${chosenYear}\`) {data.set(d.name, +d.cases)}; })
     .await(ready);
-      
+  
+
+    
   </script>
 
 </svg>`}
 
 
-var setInnerHTML = function(elm, html) {
-    elm.innerHTML = html;
-    Array.from(elm.querySelectorAll("script")).forEach( oldScript => {
-      const newScript = document.createElement("script");
-      Array.from(oldScript.attributes)
-        .forEach( attr => newScript.setAttribute(attr.name, attr.value) );
-      newScript.appendChild(document.createTextNode(oldScript.innerHTML));
-      oldScript.parentNode.replaceChild(newScript, oldScript);
-    });
+var setInnerHTML = function (elm, html) {
+  elm.innerHTML = html;
+  Array.from(elm.querySelectorAll("script")).forEach(oldScript => {
+    const newScript = document.createElement("script");
+    Array.from(oldScript.attributes)
+      .forEach(attr => newScript.setAttribute(attr.name, attr.value));
+    newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+    oldScript.parentNode.replaceChild(newScript, oldScript);
+  });
 }
 
 class Map {
-        constructor(ele){
-            this.ele = ele;
-            this.year = 2020;
-            this.disease = 'malaria';
-            this.min = 2000;
-            this.max = 2020;
-            setInnerHTML(this.ele, htmlString());
-            const sidebar = document.getElementById("context");
-            this.sidebar = new Sidebar(sidebar)
-            let slider = document.getElementById("myRange");
-            console.log(this)
-            slider.map = this
-            this.slider = slider
+  constructor(ele) {
+    this.ele = ele;
+    this.year = 2020;
+    this.disease = 'malaria';
+    this.min = 2000;
+    this.max = 2020;
+    setInnerHTML(this.ele, htmlString());
+    const sidebar = document.getElementById("context");
+    this.sidebar = new Sidebar(sidebar)
+    let slider = document.getElementById("myRange");
 
-            slider.oninput = function() {
-              this.map.resetMap(this.map.disease,this.value);
-            }
-        }
+    slider.map = this;
+    this.slider = slider;
 
-       
-        resetMap(disease,year){
-            this.disease = disease;
-            this.year = year;
-            if (disease == 'polio') {
-              this.min = 2016;
-              this.max = 2021;
-            } else if (disease == 'leprosy') {
-              this.min = 2012;
-              this.max = 2021;
-            } else {
-              if (disease == 'covid19') {
-                this.min = 2020;
-                this.max = 2021;
-              } else if (disease == 'guineaworm') {
-                this.min = 1989;
-                this.max = 2021;
-              } else {
-                if (disease == 'malaria') {
-                  this.min = 2000;
-                  this.max = 2020;
-                } else {
-                  this.min = 2000;
-                  this.max = 2021;
-                }
-              }
-            }
-            setInnerHTML(this.ele, htmlString2("nulldata",2020));
-            if (this.year > this.max) this.year = this.max;
-            if (this.year < this.min) this.year = this.min;
-            setInnerHTML(this.ele, htmlString2(disease,this.year));
-            // setInnerHTML(this.ele, htmlString2(disease,this.year));
-            this.sidebar.resetSidebar(disease,this.year);
-            this.slider.disease = this.disease;
-            this.slider.min = this.min;
-            this.slider.max = this.max;
-            this.slider.value = this.year;
-        }
+    slider.oninput = function () {
+      this.map.resetMap(this.disease, this.value);
+      this.disease = this.map.disease
     }
+    this.resetMap("malaria",2020)
+  }
+
+
+  resetMap(disease, year) {
+    this.disease = disease;
+    this.year = year;
+    if (disease == 'polio') {
+      this.min = 2016;
+      this.max = 2021;
+    } else if (disease == 'leprosy') {
+      this.min = 2012;
+      this.max = 2021;
+    } else {
+      if (disease == 'covid19') {
+        this.min = 2020;
+        this.max = 2021;
+      } else if (disease == 'guineaworm') {
+        this.min = 1989;
+        this.max = 2021;
+      } else {
+        if (disease == 'malaria') {
+          this.min = 2000;
+          this.max = 2020;
+        } else {
+          this.min = 2000;
+          this.max = 2021;
+        }
+      }
+    }
+    // setInnerHTML(this.ele, htmlString2("nulldata",2020));
+    if (this.year > this.max) this.year = this.max;
+    if (this.year < this.min) this.year = this.min;
+    let newMap = this.map
+    setInnerHTML(this.ele, htmlString2(disease, this.year));
+    this.sidebar.resetSidebar(this.disease, this.year);
+    this.slider.disease = disease;
+    this.slider.min = this.min;
+    this.slider.max = this.max;
+    this.slider.value = this.year;
+  }
+}
 
 export default Map;
