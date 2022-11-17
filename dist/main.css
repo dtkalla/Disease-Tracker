@@ -54,7 +54,8 @@ div#disease-options {
 }
 
 html {
-  color-scheme: dark;
+  background-color: lightblue;
+  color: rgb(208, 27, 27);
 }
 
 #tooltip {
@@ -84,6 +85,7 @@ button {
   cursor: pointer;
   display: inline-block;
   font-weight: 700;
+  color: inherit;
 }
 
 button:hover {
@@ -110,12 +112,13 @@ body#margin {
   position: relative;
   left: 250px;
   top: 10px;
+  z-index: 1;
 }
 
 .slider {
   -webkit-appearance: none;
   width: 100%;
-  height: 15px;
+  height: 10px;
   border-radius: 5px;
   background: #d3d3d3;
   outline: none;
@@ -130,6 +133,19 @@ body#margin {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #04AA6D;
+  background: green;
   cursor: pointer;
+}
+
+div#range {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  left: 220px;
+  position: relative;
+}
+div#range div {
+  margin-right: 550px;
+  font-size: 16;
+  font-weight: 600;
 }

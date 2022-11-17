@@ -157,7 +157,7 @@ function htmlString() {
         })
         .style("stroke", "transparent")
         .attr("class", function(d){ return "Country" } )
-        .style("opacity", .8)
+        .style("opacity", 1)
         .on("mouseover", mouseOver )
         .on("mouseleave", mouseLeave )
       }
@@ -374,15 +374,17 @@ class Map {
     this.sidebar = new Sidebar(sidebar)
     let slider = document.getElementById("myRange");
 
+    this.minYear = document.getElementById("minyear");
+    this.maxYear = document.getElementById("maxyear");
+
     slider.map = this;
     this.slider = slider;
 
     slider.oninput = function () {
       this.map.resetMap(this.disease, this.value);
-      // svg._groups[0][0].innerHTML = ''
       const html = svg._groups[0][0].innerHTML.split('<g>')
-      if (html.length > 3) {
-      svg._groups[0][0].innerHTML = [html[1],html[2],html[3]].join('<g>') }
+      if (html.length > 2) {
+      svg._groups[0][0].innerHTML = [html[1],html[2]].join('<g>') }
     }
     this.resetMap("malaria",2020)
   }
@@ -420,6 +422,8 @@ class Map {
     setInnerHTML(this.ele, htmlString2(this.disease, this.year));
     this.sidebar.resetSidebar(this.disease, this.year);
     this.slider.disease = disease;
+    this.minYear.innerHTML = `${this.min}`
+    this.maxYear.innerHTML = `${this.max}`
     this.slider.min = this.min;
     this.slider.max = this.max;
     this.slider.value = this.year;

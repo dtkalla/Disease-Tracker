@@ -5,9 +5,9 @@ import Map from "./scripts/map.js";
 
 document.addEventListener("DOMContentLoaded", () => {
     const data = document.getElementById("my_dataviz");
-    const map = new Map(data);
+    new Map(data);
     const dataCopy = document.getElementById("copy");
-    new Map(dataCopy);
+    const map = new Map(dataCopy);
 
     const data1 = document.getElementById("tuberculosis");
     new Button(data1,map,"tuberculosis");
