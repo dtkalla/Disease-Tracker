@@ -22,5 +22,28 @@ document.addEventListener("DOMContentLoaded", () => {
     new Button(data5,map,"polio");
     const data6 = document.getElementById("leprosy");
     new Button(data6,map,"leprosy");
+
+    const modal = document.getElementById("myModal");
+
+    const modalButton = document.getElementById("modalButton");
+
+    const span = document.getElementsByClassName("close")[0];
+
+    modal.style.display = "none";
+
+    modalButton.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
 });
 

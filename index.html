@@ -10,8 +10,32 @@
     <script src="https://d3js.org/d3.v4.js"></script>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
-    <title>Mapping Global Health</title>
-    <h1>Infection Tracker</h1>
+    
+    <button id="modalButton">About this project</button>
+
+
+    <title>Infection Tracker</title>
+
+    <div id='titlebox'>
+      <h1>Infection Tracker</h1>
+    </div>
+
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>I'm Daniel Kalla and I made this data visualization because I'm passionate about global health.
+          <br>
+          <br>
+          In the United States, I feel most people don't think much about diseases like tuberculosis and malaria, even though they kill large numbers of people every year worldwide and individual people can make a significant difference is fighting them.  Malaria in particular is a very solvable problem, that just lacks money to address.
+          <br>
+          For that reason, I donate 10% of my income to global health causes like malaria.
+          <br>
+          <br>
+          These maps represent the number of deaths or infections from diseases below.  All maps use the same scale, and one shade darker represents a roughly threefold increase in disease.  (Dark gray represents no data.)  Enjoy!
+        </p>
+      </div>
+    </div>
+
     <div id="links">
       <a href="https://github.com/dtkalla" target="_blank">
         <img class="icons" src="https://cdn-icons-png.flaticon.com/512/25/25231.png"/>
