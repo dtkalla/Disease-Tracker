@@ -4,7 +4,6 @@
     flex-direction: column;
 }
 
-
 body {
     display: flex;
     flex-direction: column;
@@ -19,7 +18,6 @@ svg {
     width: 900px;
     height: 500px;
 }
-
 
 div#disease-options {
     display: flex;
@@ -64,23 +62,6 @@ html {
     z-index: 3;
 }
 
-footer ul {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    position: absolute;
-    top: 500px;
-    li {
-        list-style: none;
-        z-index: 1;
-        button {
-            padding: 10px;
-        }
-    }   
-}
-
-
-
 button {
     border: none;
     background-color: inherit;
@@ -89,20 +70,11 @@ button {
     display: inline-block;
     font-weight: 700;
     color: inherit;
-  }
+}
   
   button:hover {
     background: #eee;
     color: black;
-}
-
-source-links ul {
-    flex-direction: row;
-    position: relative;
-    top: 20px;
-    li {
-        padding: 10px;
-    }
 }
 
 .slidecontainer {
@@ -111,31 +83,29 @@ source-links ul {
     left: 250px;
     top: 10px;
     z-index: 1;
-  }
+}
   
-  .slider {
+.slider {
     -webkit-appearance: none;
     width: 100%;
     height: 10px;
     border-radius: 5px;  
-    background: #d3d3d3;
-    outline: none;
     opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
-  }
+    cursor: pointer;
+}
   
-  .slider::-webkit-slider-thumb {
+.slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 25px;
     height: 25px;
     border-radius: 50%; 
     background: green;
-    cursor: pointer;
-  }
+}
 
-  div#range {
+div#range {
     padding: 20px;
     display: flex;
     flex-direction: row;
@@ -149,7 +119,7 @@ source-links ul {
     div#minyear {
         margin-right: 550px;
     }
-  }
+}
 
 div#links {
     position: absolute;
@@ -198,11 +168,11 @@ img {
     float: right;
     font-size: 28px;
     font-weight: bold;
-  }
+}
   
-  .close:hover,
-  .close:focus {
+.close:hover,
+.close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
-  }
+}

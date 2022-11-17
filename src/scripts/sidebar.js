@@ -1,15 +1,4 @@
-function htmlString() {return `<h3>Malaria 2020</h3>
-<text>
-  Every 75 seconds, a child under 5 dies of malaria.
-  <br>
-  <br>
-  Malaria is a mosquito born illness, disproportionately killing young children in poor, tropical countries.
-  <br>  
-  <br>
-  Malaria can be prevented by sleeping under $6 insecticide-treated bednets or taking anti-malaria medication -- it can also be treated.  Malaria rates have decreased significantly since the 2000s as more people have gotten access to bednets.
-</text>`}
-
-function htmlString2(disease,year) {
+function htmlString(disease,year) {
     if (disease === "malaria") {
         return `<h3>Malaria ${year}</h3>
         <text>
@@ -78,15 +67,13 @@ function htmlString2(disease,year) {
 class Sidebar {
         constructor(ele){
             this.ele = ele;
-            this.ele.innerHTML = htmlString();
         }
     
         resetSidebar(disease,year){
-            this.ele.innerHTML = htmlString2(disease,year);
+            this.ele.innerHTML = htmlString(disease,year);
         }
 
     }
 
 
     export default Sidebar;
-

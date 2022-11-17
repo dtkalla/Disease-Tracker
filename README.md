@@ -14,13 +14,13 @@ Disease tracker is a data visualization showing deaths and infections from infec
 
 ![Reported COVID-19 deaths, 2020](images/COVID19_2020.png)
 
-These map uses a log scale, with every darkening of one shade representing a roughly 3x increase in number.  Borders are not explicitly to show a greater focus on regions over specific countries.
+These map uses a log scale, with every darkening of one shade representing a roughly 3x increase in number.  Borders are not drawn in order to create a greater focus on regions over specific countries.
 
 - #### Hover over a specific country to see its name and number of deaths/infections
 
 ![Estimated tuberculosis deaths, 2021](images/tuberculosis_CIV.png)
 
-This program uses a tooltip element that's transparent most of the time but appears with text when hovering over an element.  The mouseover function also adds borders to every country to focus more on country-level differences.  Note that the popup box allows special characters.
+This program uses a tooltip element that's transparent at the start but appears with text when hovering over an element.  The mouseover function also adds borders to every country to focus more on country-level differences.  Note that the popup box allows special characters.
 
 ```
     let mouseOver = function(d) {
