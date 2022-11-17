@@ -1,3 +1,5 @@
+//should refactor from index
+
 const codeNameMatch = [
     ["ABW","Aruba"],
     ["AFG","Afghanistan"],
@@ -234,7 +236,6 @@ const conversionHash = {}
 for (let i = 0; i < codeNameMatch.length; i++) {
     conversionHash[codeNameMatch[i][0]] = codeNameMatch[i][1]
 }
-
 
 console.log(conversionHash)
 

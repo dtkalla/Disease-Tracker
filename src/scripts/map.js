@@ -29,7 +29,7 @@ class Map {
       tuberculosis: [2000,2021],
       HIV: [2000,2021],
       covid19: [2020,2021],
-      polio: [2016,2021],
+      polio: [2009,2021],
       guineaworm: [1989,2021],
       leprosy: [2012,2021],
     }

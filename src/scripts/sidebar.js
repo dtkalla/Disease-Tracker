@@ -54,9 +54,6 @@ function htmlString(disease,year) {
         return `<h3>COVID-19 ${year}</h3>
         <text>
         You already know all about COVID-19!
-        <br>
-        <br>
-        
         </text>` 
     }
     }}
@@ -65,15 +62,14 @@ function htmlString(disease,year) {
 
 
 class Sidebar {
-        constructor(ele){
-            this.ele = ele;
-        }
-    
-        resetSidebar(disease,year){
-            this.ele.innerHTML = htmlString(disease,year);
-        }
-
+    constructor(ele){
+        this.ele = ele;
     }
 
+    resetSidebar(disease,year){
+        this.ele.innerHTML = htmlString(disease,year);
+    }
+}
 
-    export default Sidebar;
+
+export default Sidebar;
