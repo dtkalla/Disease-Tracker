@@ -1,7 +1,5 @@
 import Button from "./scripts/button.js";
 import Map from "./scripts/map.js";
-// import Animate from "./scripts/animate.js"
-
 
 document.addEventListener("DOMContentLoaded", () => {
     const data = document.getElementById("my_dataviz");
@@ -9,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const dataCopy = document.getElementById("copy");
     const map = new Map(dataCopy);
 
+    
     const data1 = document.getElementById("tuberculosis");
     new Button(data1,map,"tuberculosis");
     const data2 = document.getElementById("malaria");
@@ -23,15 +22,5 @@ document.addEventListener("DOMContentLoaded", () => {
     new Button(data5,map,"polio");
     const data6 = document.getElementById("leprosy");
     new Button(data6,map,"leprosy");
-
-    // const animate = document.getElementById("animate");
-    // new Animate(animate,map);
-    
-
 });
-
-
-// document.addEventListener("DOMContentLoaded", () => {
-
-// });
 

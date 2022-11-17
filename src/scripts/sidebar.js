@@ -48,7 +48,7 @@ function htmlString2(disease,year) {
     } else {if (disease === "guineaworm") {
         return `<h3>Guinea Worm ${year}</h3>
         <text>
-        Along with polio, dracunculiasis (the diseases caused by a guinea worm infection) could plausibly be eradicated worldwide.  Although it doesn't kill people, guinea worm infections are debilitating and very painful.  (Don't watch <a href="https://www.youtube.com/watch?v=oCB1A2gFvuU" target="_blank">this video</a> if you're squeamish.)
+        Along with polio, dracunculiasis (the disease caused by a guinea worm infection) could plausibly be eradicated worldwide.  Although it doesn't kill people, guinea worm infections are debilitating and very painful.  (Don't watch <a href="https://www.youtube.com/watch?v=oCB1A2gFvuU" target="_blank">this video</a> if you're squeamish.)
         <br>
         <br>
         Guinea worm infections are a result of drinking contaminated water, and it can be prevented with a cheap filter.  It's only natural resevoir is in humans, but Chad has reported infections in dogs, as well.
@@ -64,7 +64,7 @@ function htmlString2(disease,year) {
     } else {
         return `<h3>COVID-19 ${year}</h3>
         <text>
-        You know about COVID-19!
+        You already know all about COVID-19!
         <br>
         <br>
         
@@ -79,7 +79,6 @@ class Sidebar {
         constructor(ele){
             this.ele = ele;
             this.ele.innerHTML = htmlString();
-            
         }
     
         resetSidebar(disease,year){
