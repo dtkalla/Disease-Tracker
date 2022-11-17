@@ -187,21 +187,14 @@ function htmlString0() {
 
 
 function htmlString2(chosenDisease, chosenYear) {
-  // <svg id="my_dataviz">
-  return `
-<script>
+  return `<script>
   
   d3.queue()
     .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
     .defer(d3.csv, \`./src/scripts/data/${chosenDisease}.csv\`, function(d) { if (d.year==\`${chosenYear}\`) {data.set(d.name, +d.cases)}; })
     .await(ready);
   
-
-    
-  </script>
-
-`}
-// </svg>
+  </script>`}
 
 var setInnerHTML = function (elm, html) {
   elm.innerHTML = html;
@@ -268,7 +261,6 @@ class Map {
         }
       }
     }
-    // setInnerHTML(this.ele, htmlString2("nulldata",2020));
     if (this.year > this.max) this.year = this.max;
     if (this.year < this.min) this.year = this.min;
     setInnerHTML(this.ele, htmlString2(this.disease, this.year));
