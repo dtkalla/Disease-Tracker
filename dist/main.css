@@ -102,11 +102,6 @@ source-links ul li {
   padding: 10px;
 }
 
-body#margin {
-  min-width: 0px;
-  max-width: 200px;
-}
-
 .slidecontainer {
   width: 600px;
   position: relative;
@@ -141,13 +136,15 @@ div#range {
   padding: 20px;
   display: flex;
   flex-direction: row;
-  left: 220px;
-  position: relative;
+  left: 230px;
+  position: absolute;
 }
 div#range div {
-  margin-right: 550px;
   font-size: 16;
   font-weight: 600;
+}
+div#range div#minyear {
+  margin-right: 550px;
 }
 
 div#links {
