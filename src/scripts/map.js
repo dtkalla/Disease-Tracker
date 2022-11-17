@@ -39,11 +39,6 @@ function htmlString() {
         .transition()
         .duration(200)
         .style("stroke", "black")
-      d3.select(this)
-        .transition()
-        .duration(200)
-        .style("opacity", 1)
-        .style("stroke", "black");
         
 
       const conversionHash = {
@@ -121,12 +116,6 @@ function htmlString() {
     let mouseLeave = function(d) {
       d3.selectAll(".Country")
         .transition()
-        .duration(200)
-        .style("opacity", 1)
-        .style("stroke", "transparent")
-      d3.select(this)
-        .transition()
-        .duration(200)
         .style("stroke", "transparent")
 
       tooltip
@@ -196,9 +185,9 @@ function htmlString2(chosenDisease, chosenYear) {
   
   </script>`}
 
-var setInnerHTML = function (elm, html) {
-  elm.innerHTML = html;
-  Array.from(elm.querySelectorAll("script")).forEach(oldScript => {
+var setInnerHTML = function (ele, html) {
+  ele.innerHTML = html;
+  Array.from(ele.querySelectorAll("script")).forEach(oldScript => {
     const newScript = document.createElement("script");
     Array.from(oldScript.attributes)
       .forEach(attr => newScript.setAttribute(attr.name, attr.value));

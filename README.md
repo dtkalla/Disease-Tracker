@@ -10,21 +10,72 @@ Disease tracker is a data visualization showing deaths and infections from infec
 
 ## With Disease Tracker, users can:
 
-- See the number of deaths/infections for a given disease for countries around the world
+- #### See the number of deaths/infections for a given disease for countries around the world
+
 ![Reported COVID-19 deaths, 2020](images/COVID19_2020.png)
 
 These map uses a log scale, with every darkening of one shade representing a roughly 3x increase in number.  Borders are not explicitly to show a greater focus on regions over specific countries.
 
-- Hover over a specific country to see its name and number of deaths/infections
+- #### Hover over a specific country to see its name and number of deaths/infections
+
 ![Estimated tuberculosis deaths, 2021](images/tuberculosis_CIV.png)
 
-When hovering over a specific country, all countries' borders are shown to focus more on country-level differences.  Note that the popup box allows special characters.
+This program uses a tooltip element that's transparent most of the time but appears with text when hovering over an element.  The mouseover function also adds borders to every country to focus more on country-level differences.  Note that the popup box allows special characters.
 
-- Use the slider to see how disease burden has changed over time
+
+
+```
+    let mouseOver = function(d) {
+      d3.selectAll(".Country")
+        .transition()
+        .duration(400)
+        .style("stroke", "black")
+      
+      tooltip
+      .style("opacity", 0.8)
+      .html(d.total == -1 ? "No data" : conversionHash[d.id] + ": " + d.total)
+      .style("left", (d3.event.pageX + 30) + "px")  
+      .style("top", (d3.event.pageY - 30) + "px");
+    }
+  
+    let mouseLeave = function(d) {
+      d3.selectAll(".Country")
+        .transition()
+        .style("stroke", "transparent")
+        
+      tooltip
+        .style("opacity", 0)
+    }
+    ```
+
+- #### Use the slider to see how disease burden has changed over time
 
 ![Guinea worm cases, 1989-2021](images/guinea_worm_slider.gif)
 
 Comparing maps one-by-one shows changes, but using a slider gives a much better sense in how the fight against guinea worm has evolved over time.
+
+When changing between maps originally, the map would disappear and then reappeared as it was recolored.  This program solves that by having multiple maps in the background.  Having three maps prevent flashing and doesn't cause lagging, so whenever the user changes diseases, this program creates three copies of the new disease map, thus allowing them to use the slider without the map flashing.
+```
+class Button {
+    constructor(ele,map,disease){
+        this.ele = ele;
+        this.map = map;
+        this.disease = disease;
+        this.ele.addEventListener("click", this.handleClick.bind(this));
+    }
+
+    handleClick(){
+        this.map.resetMap(this.disease,this.map.year);
+        this.map.resetMap(this.disease,this.map.year);
+        this.map.resetMap(this.disease,this.map.year);
+        const html = svg._groups[0][0].innerHTML.split('<g>')
+        const len = html.length
+        svg._groups[0][0].innerHTML = [html[len-3],html[len-2],html[len-1]].join('<g>')
+    }
+}
+
+export default Button;
+```
 
 ### This project also includes:
 - Data stored in CSV files
@@ -48,3 +99,8 @@ Comparing maps one-by-one shows changes, but using a slider gives a much better 
 - Display a bar graph showing the top five countries alongside each map
 - Add a legend to maps
 - Allow users to toggle between English, Spanish, and French
+
+## Sources:
+- Most data is taken from [WHO OData API](https://www.who.int/data/gho/info/gho-odata-api)
+- Guinea Worm 2011-2021 data is taken from [Our World in Data](https://ourworldindata.org/grapher/number-of-reported-guinea-worm-dracunculiasis-cases)
+- COVID-19 data is taken from Worldometer, archives from [2020](https://web.archive.org/web/20210101001539/https://www.worldometers.info/coronavirus/) and [2021](https://web.archive.org/web/20220101000124/https://www.worldometers.info/coronavirus/)
