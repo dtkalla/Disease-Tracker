@@ -46,7 +46,7 @@ This program uses a tooltip element that's transparent most of the time but appe
       tooltip
         .style("opacity", 0)
     }
-    ```
+```
 
 - #### Use the slider to see how disease burden has changed over time
 
@@ -55,6 +55,7 @@ This program uses a tooltip element that's transparent most of the time but appe
 Comparing maps one-by-one shows changes, but using a slider gives a much better sense in how the fight against guinea worm has evolved over time.
 
 When changing between maps originally, the map would disappear and then reappeared as it was recolored.  This program solves that by having multiple maps in the background.  Having three maps prevent flashing and doesn't cause lagging, so whenever the user changes diseases, this program creates three copies of the new disease map, thus allowing them to use the slider without the map flashing.
+
 ```
 class Button {
     constructor(ele,map,disease){
