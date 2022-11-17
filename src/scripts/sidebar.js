@@ -16,7 +16,7 @@ function htmlString2(disease,year) {
           Malaria is a mosquito born illness, disproportionately killing young children in poor, tropical countries.  It's a leading killer of young children and a major drag of economic growth in malaria-endemic countries.
           <br>
           <br>
-          Malaria can be prevented by sleeping under $6 insecticide-treated bednets or taking anti-malaria medication -- it can also be treated.  Malaria rates have decreased significantly since the 2000s as more people have gotten access to bednets.
+          Malaria can be prevented by sleeping under insecticide-treated bednets (cost: $6) or taking anti-malaria medication -- it can also be treated.  Malaria rates have decreased significantly since the 2000s as more people have gotten access to bednets.
         </text>`
     } else if (disease === "tuberculosis") {
         return `<h3>Tuberculosis ${year}</h3>
@@ -24,7 +24,7 @@ function htmlString2(disease,year) {
         Tuberculosis was the leading cause of death by infectious disease (after COVID-19), with over 1 million deaths in 2020.
         <br>
         <br>
-        Tuberculosis continues to kill people in nearly every country on earth but is esepcially serious in poorer countries.  Among people who die of HIV, tuberculosis is most often what actually kills them, accounting for around 30% of deaths.  (HIV deaths are not included in this map.)
+        Tuberculosis continues to kill people in nearly every country on earth but is especially serious in poorer countries.  Among people who die of HIV, tuberculosis is most often what actually kills them, accounting for around 30% of deaths.  (HIV-related tuberculosis deaths are included in the HIV map, not here.)
         <br>
         <br>
         Tuberculosis is curable with treatment.
@@ -32,10 +32,10 @@ function htmlString2(disease,year) {
     } else {if (disease === "HIV") {
         return `<h3>HIV ${year}</h3>
         <text>
-        HIV deaths peaked in 2004, when HIV was the leading cause of death across Africa.  (From 1997-2006, HIV accounted for the majority of deaths in Zambia.)  Although the situation has improved sunstantially, HIV continues to be the leading cause of death in South Africa, the six countries it borders, and Malawi.
+        HIV deaths peaked in 2004, when HIV was the leading cause of death across Africa.  (From 1997-2006, HIV accounted for the majority of deaths in Zambia.)  Although the situation has improved substantially, HIV continues to be the leading cause of death in South Africa, the six countries it borders, and Malawi.
         <br>
         <br>
-        HIV it both preventable and treatable, but it is not currently curable.
+        HIV is both preventable and treatable, but it is not currently curable.
         </text>`
     } else if (disease === "leprosy") {
         return `<h3>Leprosy ${year}</h3>
