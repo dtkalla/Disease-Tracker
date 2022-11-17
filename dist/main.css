@@ -62,7 +62,7 @@ html {
 
 #tooltip {
   color: blue;
-  z-index: 2;
+  z-index: 3;
 }
 
 footer ul {
@@ -187,6 +187,7 @@ img {
   font-weight: 500;
   margin: 5%;
   padding: 15px;
+  font-size: 15.7;
   border: 1px solid #888;
 }
 

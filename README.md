@@ -22,13 +22,11 @@ These map uses a log scale, with every darkening of one shade representing a rou
 
 This program uses a tooltip element that's transparent most of the time but appears with text when hovering over an element.  The mouseover function also adds borders to every country to focus more on country-level differences.  Note that the popup box allows special characters.
 
-
-
 ```
     let mouseOver = function(d) {
       d3.selectAll(".Country")
         .transition()
-        .duration(400)
+        .duration(200)
         .style("stroke", "black")
       
       tooltip

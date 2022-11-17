@@ -1,9 +1,13 @@
 import Sidebar from "./sidebar.js";
 
 function htmlString() {
-  return `<svg id="my_dataviz">
-<script>
+  return `<script>
   svg = d3.select("svg");
+  svg.colorScale = d3.scaleThreshold()
+  .domain([-1,0,1,3,10,30,100,300,1000,3000,10000,30000,100000,300000,1000000])
+  .range(['#FFFFFF','#888888','#fff7ec', '#feedd5','#fee3bd', '#fdd6a5',
+  '#fdc791', '#fdb27c','#fb9865', '#f67d53','#ed6243', '#df432e',
+  '#cc2317', '#b50b07','#970101', '#7f0000'])
 
   tooltip = d3.select("#tooltip")
     .style("opacity", 0)
@@ -19,17 +23,13 @@ function htmlString() {
   projection = d3.geoNaturalEarth1()
     .scale(150)
     .center([0,0])
-  
+
+    
   data = d3.map();
-  let colorScale = d3.scaleThreshold()
-    .domain([-1,0,1,3,10,30,100,300,1000,3000,10000,30000,100000,300000,1000000])
-    .range(['#FFFFFF','#888888','#fff7ec', '#feedd5','#fee3bd', '#fdd6a5',
-    '#fdc791', '#fdb27c','#fb9865', '#f67d53','#ed6243', '#df432e',
-    '#cc2317', '#b50b07','#970101', '#7f0000']);
 
   d3.queue()
     .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
-    .defer(d3.csv, \`./src/scripts/data/malaria.csv\`, function(d) { if (d.year==2020) {data.set(d.name, +d.cases)}; })
+    .defer(d3.csv, "./src/scripts/data/malaria.csv", function(d) { if (d.year==2020) {data.set(d.name, +d.cases)}; })
     .await(ready);
   
   function ready(error, topo) {
@@ -121,11 +121,6 @@ function htmlString() {
       tooltip
         .style("opacity", 0)
     }
-    function eventHandler(e) {
-      const country = e.target;
-    
-      country.style.stroke = "red";
-    }
 
 
     svg.append("g")
@@ -133,27 +128,24 @@ function htmlString() {
       .data(topo.features)
       .enter()
       .append("path")
-        // draw each country
-        .attr("d", d3.geoPath()
+
+      .attr("d", d3.geoPath()
           .projection(projection)
         )
-        // set the color of each country
+
         .attr("fill", function (d) {
           d.total = data.get(d.id);
           if (d.total === undefined || d.total == null) d.total = -1;
-          return colorScale(d.total);
+          return svg.colorScale(d.total);
         })
         .style("stroke", "transparent")
         .attr("class", function(d){ return "Country" } )
-        .style("opacity", 1)
         .on("mouseover", mouseOver )
         .on("mouseleave", mouseLeave )
       }
 
 
-  </script>
-
-</svg>`}
+  </script>`}
 
 function htmlString0() {
   return `<svg2 id="copy">
@@ -250,13 +242,14 @@ class Map {
         }
       }
     }
+
     if (this.year > this.max) this.year = this.max;
     if (this.year < this.min) this.year = this.min;
     setInnerHTML(this.ele, htmlString2(this.disease, this.year));
     this.sidebar.resetSidebar(this.disease, this.year);
-    this.slider.disease = disease;
     this.minYear.innerHTML = `${this.min}`
     this.maxYear.innerHTML = `${this.max}`
+    this.slider.disease = disease;
     this.slider.min = this.min;
     this.slider.max = this.max;
     this.slider.value = this.year;

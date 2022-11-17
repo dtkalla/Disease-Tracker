@@ -13,7 +13,7 @@ function htmlString2(disease,year) {
     if (disease === "malaria") {
         return `<h3>Malaria ${year}</h3>
         <text>
-          Malaria is a mosquito born illness, disproportionately killing young children in poor, tropical countries.  It's a leading killer of young children and a major drag of economic growth in malaria-endemic countries.
+          Malaria is a mosquito-born illness, disproportionately killing young children in poor, tropical countries.  It's a leading killer of young children and a major drag of economic growth in malaria-endemic countries.
           <br>
           <br>
           Malaria can be prevented by sleeping under insecticide-treated bednets (cost: $6) or taking anti-malaria medication -- it can also be treated.  Malaria rates have decreased significantly since the 2000s as more people have gotten access to bednets.
