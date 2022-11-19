@@ -48,7 +48,7 @@ function htmlString(disease,year) {
         To date, smallpox is the only human disease that has been eradicated, but polio may be next.  Two of the three strains of wild polio have been eliminated, and as of 2020, wild polio is present in just two countries: Afghanistan and Pakistan.
         <br>
         <br>
-        Polio can be prevented with vaccines, but universal coverage is difficult to achieve in some areas.  Diagnosis is also difficult because polio is often asymptomatic.
+        Polio can be prevented with vaccines, but universal coverage is difficult to achieve in some areas.  Diagnosis is also difficult because polio is often asymptomatic.  Currently, the world spends around $1 billion a year fighting polio.
         </text>`
     } else {
         return `<h3>COVID-19 ${year}</h3>
