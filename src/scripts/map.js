@@ -8,7 +8,8 @@ function htmlString(chosenDisease, chosenYear) {
     .defer(d3.csv, \`./src/scripts/data/${chosenDisease}.csv\`, function(d) { if (d.year==\`${chosenYear}\`) {data.set(d.name, +d.cases)}; })
     .await(ready);
   
-  </script>`}
+  </script>`
+}
 
 const setInnerHTML = function (ele, html) {
   ele.innerHTML = html;

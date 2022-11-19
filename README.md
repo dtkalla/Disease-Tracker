@@ -52,7 +52,7 @@ This program uses a tooltip element that's transparent at the start but appears 
 
 Comparing maps one-by-one shows changes, but using a slider gives a much better sense in how the fight against guinea worm has evolved over time.
 
-When changing between maps originally, the map would disappear and then reappeared as it was recolored.  This program solves that by having multiple maps in the background.  Having three maps prevent flashing and doesn't cause lagging, so whenever the user changes diseases, this program creates three copies of the new disease map, thus allowing them to use the slider without the map flashing.
+When changing between maps originally, the map would disappear and then reappeared as it was recolored.  This program solves that by having two maps.  Two maps prevent flashing and doesn't cause lagging, so whenever the user changes diseases, this program creates two copies of the new disease map, thus allowing them to use the slider without the map flashing.
 
 ```
 class Button {
@@ -66,10 +66,9 @@ class Button {
     handleClick(){
         this.map.resetMap(this.disease,this.map.year);
         this.map.resetMap(this.disease,this.map.year);
-        this.map.resetMap(this.disease,this.map.year);
         const html = svg._groups[0][0].innerHTML.split('<g>')
         const len = html.length
-        svg._groups[0][0].innerHTML = [html[len-3],html[len-2],html[len-1]].join('<g>')
+        svg._groups[0][0].innerHTML = [html[len-2],html[len-1]].join('<g>')
     }
 }
 
