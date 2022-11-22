@@ -1,22 +1,20 @@
 import Sidebar from "./sidebar.js";
 
 function htmlString(chosenDisease, chosenYear) {
-  return `<script>
+  return `<refreshMapCode>
   
   d3.queue()
     .defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
     .defer(d3.csv, \`./src/scripts/data/${chosenDisease}.csv\`, function(d) { if (d.year==\`${chosenYear}\`) {data.set(d.name, +d.cases)}; })
-    .await(ready);
-  
-  </script>`
+    .await(ready);`
 }
 
 const setInnerHTML = function (ele, html) {
   ele.innerHTML = html;
-  const oldScript = ele.querySelector("script")
-  const newScript = document.createElement("script");
-  newScript.appendChild(document.createTextNode(oldScript.innerHTML));
-  oldScript.parentNode.replaceChild(newScript, oldScript);
+  const untreated = ele.querySelector("refreshMapCode")
+  const treated = document.createElement("script");
+  treated.appendChild(document.createTextNode(untreated.innerHTML));
+  untreated.parentNode.replaceChild(treated, untreated);
 }
 
 class Map {
