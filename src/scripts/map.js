@@ -13,13 +13,10 @@ function htmlString(chosenDisease, chosenYear) {
 
 const setInnerHTML = function (ele, html) {
   ele.innerHTML = html;
-  Array.from(ele.querySelectorAll("script")).forEach(oldScript => {
-    const newScript = document.createElement("script");
-    Array.from(oldScript.attributes)
-      .forEach(attr => newScript.setAttribute(attr.name, attr.value));
-    newScript.appendChild(document.createTextNode(oldScript.innerHTML));
-    oldScript.parentNode.replaceChild(newScript, oldScript);
-  });
+  const oldScript = ele.querySelector("script")
+  const newScript = document.createElement("script");
+  newScript.appendChild(document.createTextNode(oldScript.innerHTML));
+  oldScript.parentNode.replaceChild(newScript, oldScript);
 }
 
 class Map {
