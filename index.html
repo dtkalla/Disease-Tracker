@@ -30,7 +30,7 @@
           For that reason, I donate 10% of my income to global health causes like malaria.
           <br>
           <br>
-          These maps represent the number of deaths or infections from diseases below.  All maps use the same scale, and one shade darker represents a roughly threefold increase in disease.  (Dark gray represents no data.)  Enjoy!
+          These maps represent the number of deaths or infections from diseases below.  All maps use the same scale, and each shade darker represents a roughly threefold increase in disease.  Enjoy!
         </p>
       </div>
     </div>
@@ -208,34 +208,37 @@
                 .attr("class", function(d){ return "Country" } )
                 .on("mouseover", mouseOver )
                 .on("mouseleave", mouseLeave )
+                
+                svg.append("circle").attr("cx",218).attr("cy",480).attr("r", 6).style("fill", "#888888")
+                svg.append("circle").attr("cx",294).attr("cy",480).attr("r", 6).style("fill", "#fff7ec")
+                svg.append("circle").attr("cx",327).attr("cy",480).attr("r", 6).style("fill", "#feedd5")
+                svg.append("circle").attr("cx",360).attr("cy",480).attr("r", 6).style("fill", "#fee3bd")
+                svg.append("circle").attr("cx",393).attr("cy",480).attr("r", 6).style("fill", "#fdd6a5")
+                svg.append("circle").attr("cx",434).attr("cy",480).attr("r", 6).style("fill", "#fdc791")
+                svg.append("circle").attr("cx",475).attr("cy",480).attr("r", 6).style("fill", "#fdb27c")
+                svg.append("circle").attr("cx",524).attr("cy",480).attr("r", 6).style("fill", "#fb9865")
+                svg.append("circle").attr("cx",573).attr("cy",480).attr("r", 6).style("fill", "#f67d53")
+                svg.append("circle").attr("cx",614).attr("cy",480).attr("r", 6).style("fill", "#ed6243")
+                svg.append("circle").attr("cx",655).attr("cy",480).attr("r", 6).style("fill", "#df432e")
+                svg.append("circle").attr("cx",704).attr("cy",480).attr("r", 6).style("fill", "#cc2317")
+                svg.append("circle").attr("cx",753).attr("cy",480).attr("r", 6).style("fill", "#b50b07")
+                svg.append("circle").attr("cx",810).attr("cy",480).attr("r", 6).style("fill", "#970101")
+                <!-- svg.append("circle").attr("cx",867).attr("cy",480).attr("r", 6).style("fill", "#7f0000") -->
 
-                svg.append("circle").attr("cx",220).attr("cy",480).attr("r", 6).style("fill", "#69b3a2")
-                svg.append("circle").attr("cx",300).attr("cy",480).attr("r", 6).style("fill", "#404080")
-                svg.append("circle").attr("cx",330).attr("cy",480).attr("r", 6).style("fill", "#404080")
-                svg.append("circle").attr("cx",360).attr("cy",480).attr("r", 6).style("fill", "#404080")
-                svg.append("circle").attr("cx",390).attr("cy",480).attr("r", 6).style("fill", "#404080")
-                svg.append("circle").attr("cx",425).attr("cy",480).attr("r", 6).style("fill", "#404080")
-                svg.append("circle").attr("cx",460).attr("cy",480).attr("r", 6).style("fill", "#404080")
-                svg.append("circle").attr("cx",500).attr("cy",480).attr("r", 6).style("fill", "#404080")
-                svg.append("circle").attr("cx",540).attr("cy",480).attr("r", 6).style("fill", "#404080")
-                svg.append("circle").attr("cx",585).attr("cy",480).attr("r", 6).style("fill", "#404080")
-                svg.append("circle").attr("cx",630).attr("cy",480).attr("r", 6).style("fill", "#404080")
-                svg.append("circle").attr("cx",680).attr("cy",480).attr("r", 6).style("fill", "#404080")
-                svg.append("circle").attr("cx",730).attr("cy",480).attr("r", 6).style("fill", "#404080")
-
-                svg.append("text").attr("x", 230).attr("y", 480).text("No data").style("font-size", "15px").attr("alignment-baseline","middle")
-                svg.append("text").attr("x", 310).attr("y", 480).text("0").style("font-size", "15px").attr("alignment-baseline","middle")
-                svg.append("text").attr("x", 340).attr("y", 480).text("1").style("font-size", "15px").attr("alignment-baseline","middle")
-                svg.append("text").attr("x", 370).attr("y", 480).text("3").style("font-size", "15px").attr("alignment-baseline","middle")
-                svg.append("text").attr("x", 400).attr("y", 480).text("10").style("font-size", "15px").attr("alignment-baseline","middle")
-                svg.append("text").attr("x", 435).attr("y", 480).text("30").style("font-size", "15px").attr("alignment-baseline","middle")
-                svg.append("text").attr("x", 470).attr("y", 480).text("100").style("font-size", "15px").attr("alignment-baseline","middle")
-                svg.append("text").attr("x", 510).attr("y", 480).text("300").style("font-size", "15px").attr("alignment-baseline","middle")
-                svg.append("text").attr("x", 550).attr("y", 480).text("1000").style("font-size", "15px").attr("alignment-baseline","middle")
-                svg.append("text").attr("x", 595).attr("y", 480).text("3000").style("font-size", "15px").attr("alignment-baseline","middle")
-                svg.append("text").attr("x", 640).attr("y", 480).text("10000").style("font-size", "15px").attr("alignment-baseline","middle")
-                svg.append("text").attr("x", 690).attr("y", 480).text("30000").style("font-size", "15px").attr("alignment-baseline","middle")
-                svg.append("text").attr("x", 740).attr("y", 480).text("100000").style("font-size", "15px").attr("alignment-baseline","middle")
+                svg.append("text").attr("x", 227).attr("y", 481).text("No data").style("font-size", "15px").attr("alignment-baseline","middle")
+                svg.append("text").attr("x", 303).attr("y", 481).text("0").style("font-size", "15px").attr("alignment-baseline","middle")
+                svg.append("text").attr("x", 336).attr("y", 481).text("1").style("font-size", "15px").attr("alignment-baseline","middle")
+                svg.append("text").attr("x", 369).attr("y", 481).text("3").style("font-size", "15px").attr("alignment-baseline","middle")
+                svg.append("text").attr("x", 402).attr("y", 481).text("10").style("font-size", "15px").attr("alignment-baseline","middle")
+                svg.append("text").attr("x", 443).attr("y", 481).text("30").style("font-size", "15px").attr("alignment-baseline","middle")
+                svg.append("text").attr("x", 484).attr("y", 481).text("100").style("font-size", "15px").attr("alignment-baseline","middle")
+                svg.append("text").attr("x", 533).attr("y", 481).text("300").style("font-size", "15px").attr("alignment-baseline","middle")
+                svg.append("text").attr("x", 582).attr("y", 481).text("1k").style("font-size", "15px").attr("alignment-baseline","middle")
+                svg.append("text").attr("x", 623).attr("y", 481).text("3k").style("font-size", "15px").attr("alignment-baseline","middle")
+                svg.append("text").attr("x", 664).attr("y", 481).text("10k").style("font-size", "15px").attr("alignment-baseline","middle")
+                svg.append("text").attr("x", 713).attr("y", 481).text("30k").style("font-size", "15px").attr("alignment-baseline","middle")
+                svg.append("text").attr("x", 762).attr("y", 481).text("100k").style("font-size", "15px").attr("alignment-baseline","middle")
+                svg.append("text").attr("x", 819).attr("y", 481).text("300k").style("font-size", "15px").attr("alignment-baseline","middle")
 
               }
           </script>
