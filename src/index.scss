@@ -9,21 +9,26 @@ body {
     flex-direction: column;
 }
 
+div#main {
+    display: flex;
+    flex-direction: row;
+}
+
+div.map {
+    width: 65%;
+}
+
 svg {
     display: flex;
     justify-content: flex-start;
-    position: absolute;
-    top: 50px;
-    left: 40px;
-    width: 900px;
-    height: 500px;
+    align-items: flex-start;
+    position: relative;
+    width: auto;
 }
 
 div#disease-options {
-    display: flex;
-    justify-content: flex-start;
-    position: relative;
-    width: 200px;
+    width: 15%;
+    min-width: 150px;
     z-index: 1;
 }
 
@@ -42,11 +47,9 @@ div#disease-options {
 #context {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    justify-content: flex-end;
-    left: 950px;
-    right: 50px;
-    top: 80px;
+    justify-content: flex-start;
+    position: relative;
+    width: 20%;
     max-width: 400px;
     min-width: 185px;
 }
@@ -78,11 +81,12 @@ button {
 }
 
 .slidecontainer {
-    width: 600px; 
+    width: 100%; 
     position: relative;
-    left: 250px;
-    top: 10px;
+    top: -5px;
+    left: 3%;
     z-index: 1;
+    width: 90%;
 }
   
 .slider {
@@ -106,18 +110,19 @@ button {
 }
 
 div#range {
-    padding: 20px;
+    padding: 15px;
     display: flex;
     flex-direction: row;
-    left: 230px;
-    position: absolute;
+    top: -12px;
+    // left: 230px;
+    position: relative;
     div {
         font-size: 16;
         font-weight: 600;
 
     }
     div#minyear {
-        margin-right: 550px;
+        margin-right: 85%;
     }
 }
 
