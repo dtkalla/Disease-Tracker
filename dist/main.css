@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  max-height: 10%;
 }
 
 body {
@@ -19,6 +20,8 @@ div#main {
 
 div.map {
   width: 65%;
+  min-width: 600px;
+  max-width: 800px;
 }
 
 svg {
@@ -58,8 +61,8 @@ div#disease-options {
 }
 
 html {
-  background-color: lightblue;
-  color: rgb(208, 27, 27);
+  background-color: #668eb9;
+  color: white;
   font-family: sans-serif;
 }
 
@@ -109,7 +112,7 @@ button:hover {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: green;
+  background: #185359;
 }
 
 div#range {
@@ -124,7 +127,7 @@ div#range div {
   font-weight: 600;
 }
 div#range div#minyear {
-  margin-right: 85%;
+  margin-right: 86%;
 }
 
 div#links {
