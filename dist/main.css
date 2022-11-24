@@ -61,13 +61,13 @@ div#disease-options {
 }
 
 html {
-  background-color: #668eb9;
-  color: white;
+  background-color: #607EA6;
+  color: #D0ECF2;
   font-family: sans-serif;
 }
 
 #tooltip {
-  color: blue;
+  color: #103778;
   z-index: 3;
 }
 
@@ -112,7 +112,7 @@ button:hover {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #185359;
+  background: #204473;
 }
 
 div#range {
@@ -147,14 +147,13 @@ img {
 #modalButton {
   position: absolute;
   margin: 20px;
+  z-index: 5;
 }
 
 .modal {
-  position: fixed;
+  position: absolute;
   display: flex;
-  justify-content: flex-end;
-  top: 15px;
-  left: 20px;
+  justify-content: center;
   border: 10px;
   z-index: 1729;
   overflow: auto;
@@ -170,6 +169,11 @@ img {
   padding: 15px;
   font-size: 15.7;
   border: 1px solid #888;
+}
+
+head {
+  display: flex;
+  justify-content: center;
 }
 
 .close {

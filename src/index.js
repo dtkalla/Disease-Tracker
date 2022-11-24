@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const span = document.getElementsByClassName("close")[0];
 
-    modal.style.display = "none";
+    // modal.style.display = "none";
 
     modalButton.onclick = function() {
         modal.style.display = "block";
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     window.onclick = function(event) {
-        if (event.target == modal) {
+        if (event.target != modal && event.target != modalButton) {
             modal.style.display = "none";
         }
     }
