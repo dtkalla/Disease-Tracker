@@ -155,20 +155,21 @@ img {
     justify-content: center;
     // top: 15px;
     // left: 20px;
+    margin-right: 20px;
     border: 10px;
     z-index: 1729;
     overflow: auto;
-    width: 300px;
+    width: 500px;
     background-color: rgba(0,0,0,0.4);
 }
 
 .modal-content {
-    background-color: rgb(112, 200, 230);
-    color: indigo;
+    background-color: #607EA6;
+    color: #D0ECF2;
     font-weight: 500;
     margin: 5%;
     padding: 15px;
-    font-size: 15.7;
+    font-size: 16;
     border: 1px solid #888;
 }
 
