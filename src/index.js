@@ -42,6 +42,12 @@ document.addEventListener("DOMContentLoaded", () => {
         if (event.target != modal && event.target != modalButton) {
             modal.style.display = "none";
         }
+    } 
+
+    window.onmouseenter = function(event) {
+        if (event.target != modal && event.target != modalButton) {
+            modal.style.display = "none";
+        }
     }
 
 });
