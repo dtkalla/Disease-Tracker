@@ -11,7 +11,9 @@
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
     
-    <button id="modalButton"><img class="icons" src="https://cdn-icons-png.flaticon.com/512/3524/3524335.png"/></button>
+    <button id="modalButton">
+      <img id="modalButtonImage" src="https://cdn-icons-png.flaticon.com/512/3524/3524335.png"/>
+    </button>
 
     <title>Disease Tracker</title>
 
@@ -69,9 +71,9 @@
       <div id="tooltip"></div>
       
       <div class="map">
-        <svg2 id="copy" viewBox="0 0 900 550"></svg2>
+        <svg2 id="copy" viewBox="0 0 900 540"></svg2>
       
-        <svg id="my_dataviz" viewBox="0 0 900 550">
+        <svg id="my_dataviz" viewBox="0 0 900 540">
           <script id="svg_script">
             svg = d3.select("svg");
             svg.colorScale = d3.scaleThreshold()

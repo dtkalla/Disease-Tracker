@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const modal = document.getElementById("myModal");
 
     const modalButton = document.getElementById("modalButton");
+    const modalButtonImage = document.getElementById("modalButtonImage");
 
     const span = document.getElementsByClassName("close")[0];
 
@@ -39,16 +40,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     window.onclick = function(event) {
-        if (event.target != modal && event.target != modalButton) {
+        if (event.target != modal && event.target != modalButtonImage) {
             modal.style.display = "none";
         }
     } 
 
-    window.onmouseenter = function(event) {
-        if (event.target != modal && event.target != modalButton) {
-            modal.style.display = "none";
-        }
-    }
+    // window.onmouseenter = function(event) {
+    //     if (event.target != modal && event.target != modalButton) {
+    //         modal.style.display = "none";
+    //     }
+    // }
 
 });
 
