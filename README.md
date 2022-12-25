@@ -94,6 +94,7 @@ export default Button;
 
 ## Future Features:
 - Pull data directly from WHO API instead of using downloaded data
+- Make mobile version of site/modify to work for mobile too
 - Display a bar graph showing the top five countries alongside each map
 - Add a legend to maps
 - Allow users to toggle between English, Spanish, and French
