@@ -1,4 +1,4 @@
-# JavaScript Project: Disease Tracker
+# Disease Tracker
 
 Disease tracker is a data visualization showing deaths and infections from infectious diseases worldwide.  It shows COVID-19 and the "Big Three" infectious diseases in global health (malaria, tuberculosis, and HIV), as well as certain neglected tropical diseases (polio, guinea worm, and leprosy).  For COVID-19 and the big three (which kill large numbers of people every year), it shows the number of deaths; for the neglected tropical diseases (which rarely kill people and are targeted for eradication), it shows the number of cases.  All maps are shown using the same color scale to allow better comparisons between the burden of different diseases.
 
