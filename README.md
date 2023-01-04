@@ -48,7 +48,7 @@ This program uses a tooltip element that's transparent at the start but appears 
 
 - #### Use the slider to see how disease burden has changed over time
 
-![Guinea worm cases, 1989-2021](images/guinea_worm_slider.gif)
+![Guinea worm cases, 1989-2021](images/guinea_worm.gif)
 
 Comparing maps one-by-one shows changes, but using a slider gives a much better sense in how the fight against guinea worm has evolved over time.
 
