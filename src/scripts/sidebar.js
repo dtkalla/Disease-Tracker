@@ -2,7 +2,7 @@ function htmlString(disease,year) {
     if (disease === "malaria") {
         return `<h3>Malaria Deaths ${year}</h3>
         <text>
-          Malaria is a mosquito-born illness, disproportionately killing children under 5 in poor, tropical countries.  It's a leading killer of young children and a major drag of economic growth in malaria-endemic countries, accounting for a roughly 1% decrease in GDP growth per year.
+          Malaria is a mosquito-borne illness, disproportionately killing children under 5 in poor, tropical countries.  It's a leading killer of young children and a major drag of economic growth in malaria-endemic countries, accounting for a roughly 1% decrease in GDP growth per year.
           <br>
           <br>
           Malaria can be prevented by sleeping under insecticide-treated bednets (cost: $6) or taking anti-malaria medication -- it can also be treated.  Access to bednets is improving, and clinical trials are ongoing for malaria vaccines.
@@ -40,7 +40,7 @@ function htmlString(disease,year) {
         Along with polio, dracunculiasis (the disease caused by a guinea worm infection) could plausibly be eradicated worldwide within 5-10 years.  Although it doesn't kill people, guinea worm infections are debilitating and very painful.  (Don't watch <a href="https://www.youtube.com/watch?v=oCB1A2gFvuU" target="_blank">this video</a> if you're squeamish.)
         <br>
         <br>
-        Guinea worm infections are a result of drinking contaminated water, and it can be prevented with a cheap filter.  It's only natural resevoir is in humans, although Chad has reported infections in dogs, as well.
+        Guinea worm infections are a result of drinking contaminated water, and it can be prevented with a cheap filter.  Its only natural reservoir is in humans, although Chad has reported infections in dogs, as well.
         </text>`
     } else if (disease === "polio") {
         return `<h3>Polio Cases ${year}</h3>
@@ -57,7 +57,7 @@ function htmlString(disease,year) {
         <ul>
         <li>The COVID-19 genome was published on January 11, 2020.  Moderna used it to design their vaccine, finishing by January 13.</li>
         <br>
-        <li>The UK pioneered a new type of clinical trial to test multiple COVID-19 treatments at once -- this trial found four effective treatments for COVID-19, including dexamethasone and monoclonal antobodies.</li>
+        <li>The UK pioneered a new type of clinical trial to test multiple COVID-19 treatments at once -- this trial found four effective treatments for COVID-19, including dexamethasone and monoclonal antibodies.</li>
         </ul>
         </text>` 
     }
