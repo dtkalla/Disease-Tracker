@@ -1,6 +1,6 @@
 # Disease Tracker
 
-Disease tracker is a data visualization showing deaths and infections from infectious diseases worldwide.  It shows COVID-19 and the "Big Three" infectious diseases in global health (malaria, tuberculosis, and HIV), as well as certain neglected tropical diseases (polio, guinea worm, and leprosy).  For COVID-19 and the big three (which kill large numbers of people every year), it shows the number of deaths; for the neglected tropical diseases (which rarely kill people and are targeted for eradication), it shows the number of cases.  All maps are shown using the same color scale to allow better comparisons between the burden of different diseases.
+Disease tracker is a data visualization showing deaths and infections from infectious diseases worldwide.  It shows COVID-19 and the traditional "Big Three" infectious diseases in global health (malaria, tuberculosis, and HIV), as well as certain neglected tropical diseases (polio, guinea worm, and leprosy).  For COVID-19 and the big three (which kill large numbers of people every year), it shows the number of deaths; for the neglected tropical diseases (which rarely kill people and are targeted for eradication), it shows the number of cases.  All maps are shown using the same color scale to allow better comparisons between the burden of different diseases.
 
 ![Disease tracker defaults to the malaria 2020 map.](images/splash.png)
 
@@ -14,7 +14,7 @@ Disease tracker is a data visualization showing deaths and infections from infec
 
 ![Reported COVID-19 deaths, 2020](images/choropleth.png)
 
-These map uses a log scale, with every darkening of one shade representing a roughly 3x increase in number.  Borders are not drawn in order to create a greater focus on regions over specific countries.
+These map uses a log scale, with every darkening of one shade representing a roughly 3x increase in number.  Borders are not drawn by default in order to create a greater focus on regions over specific countries.
 
 - #### Hover over a specific country to see its name and number of deaths/infections
 
@@ -52,7 +52,7 @@ This program uses a tooltip element that's transparent at the start but appears 
 
 Comparing maps one-by-one shows changes, but using a slider gives a much better sense in how the fight against guinea worm has evolved over time.
 
-When changing between maps originally, the map would disappear and then reappeared as it was recolored.  This program solves that by having two maps.  Two maps prevent flashing and doesn't cause lagging, so whenever the user changes diseases, this program creates two copies of the new disease map, thus allowing them to use the slider without the map flashing.
+When changing between maps originally, the map would disappear and then reappeared as it was recolored.  This program solves that by having two maps.  Two maps prevent flashing and doesn't cause lagging, so whenever the user changes diseases, this program creates two copies of the new disease map, thus allowing smooth transitions with the slider.
 
 ```
 class Button {
