@@ -45,11 +45,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     } 
 
-    // window.onmouseenter = function(event) {
-    //     if (event.target != modal && event.target != modalButton) {
-    //         modal.style.display = "none";
-    //     }
-    // }
-
 });
 

@@ -190,7 +190,7 @@ const codeNameMatch = [
     ["SOM","Somalia"],
     ["SPM","Saint Pierre and Miquelon"],
     ["SRB","Serbia"],
-    ["SSD","South Sudan"],
+    ["SDS","South Sudan"],
     ["STP","Sao Tome and Principe"],
     ["SUR","Suriname"],
     ["SVK","Slovakia"],
