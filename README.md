@@ -4,6 +4,14 @@ Disease tracker is a data visualization showing deaths and infections from infec
 
 ![Disease tracker defaults to the malaria 2020 map.](images/splash.png)
 
+## Technologies and libraries used:
+- JavaScript
+- The Data-Driven Documents JavaScript library (D3.js)
+- Webpack
+- npm
+- SCSS / Sass
+
+
 ## Wireframe:
 
 ![](images/wireframe.png)
@@ -79,10 +87,6 @@ export default Button;
 - Data stored in CSV files
 - A production README
 
-## Technologies and libraries used:
-- This document uses the Data-Driven Documents (D3) JavaScript library to create choropleth maps
-- Webpack to bundle code from different files together
-- npm to manage different modules
 
 ## Implementation Timeline:
 - Thursday: find data sources and technologies to use
