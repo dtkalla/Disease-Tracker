@@ -106,5 +106,5 @@ export default Button;
 ## Sources:
 - Most data is taken from [WHO OData API](https://www.who.int/data/gho/info/gho-odata-api)
 - Guinea Worm 2011-2021 data is taken from [Our World in Data](https://ourworldindata.org/grapher/number-of-reported-guinea-worm-dracunculiasis-cases)
-- COVID-19 data is taken from Worldometer, archives from [2020](https://web.archive.org/web/20210101001539/https://www.worldometers.info/coronavirus/) and [2021](https://web.archive.org/web/20220101000124/https://www.worldometers.info/coronavirus/)
+- COVID-19 data is taken from Worldometer, archives from [2020](https://web.archive.org/web/20210101001539/https://www.worldometers.info/coronavirus/), [2021](https://web.archive.org/web/20220101000124/https://www.worldometers.info/coronavirus/), and [2022](https://web.archive.org/web/20230101011344/https://www.worldometers.info/coronavirus/)
 - Polio data before 2016 from [GPEI](https://polioeradication.org/polio-today/polio-now/wild-poliovirus-list/)
