@@ -92,7 +92,7 @@ export default Button;
 - Thursday: find data sources and technologies to use
 - Friday & weekend: download and process data, create first choropleth map
 - Monday: create buttons that allow users to control and change maps
-- Tuesday: create sidebar that changes based on map selected; refactor and imrpove display
+- Tuesday: create sidebar that changes based on map selected; refactor and improve display
 - Wednesday: create slider for years; fix code to allow smooth, quick transition between different maps
 - Thursday: deploy to GitHub pages
 
