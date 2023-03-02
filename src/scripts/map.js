@@ -27,7 +27,7 @@ class Map {
       covid19: [2020,2022],
       polio: [2009,2022],
       guineaworm: [1989,2022],
-      leprosy: [2012,2021],
+      leprosy: [2005,2021],
     }
 
     const sidebar = document.getElementById("context");

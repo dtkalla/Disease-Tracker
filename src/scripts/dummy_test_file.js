@@ -8,7 +8,7 @@ let tuberculosisUrl = 'https://ghoapi.azureedge.net/api/TB_e_mort_exc_tbhiv_num?
 let HIVUrl = 'https://ghoapi.azureedge.net/api/HIV_0000000006?$filter=SpatialDimType%20eq%20%27COUNTRY%27';
 let polioUrl = 'https://ghoapi.azureedge.net/api/VACCINEPREVENTABLE_WILDPOLIO?$filter=SpatialDimType%20eq%20%27COUNTRY%27';
 let guineaWormUrl = 'https://ghoapi.azureedge.net/api/NTD_3?$filter=SpatialDimType%20eq%20%27COUNTRY%27';
-let leprosyUrl = 'https://ghoapi.azureedge.net/api/NTD_LEPR5?$filter=SpatialDimType%20eq%20%27COUNTRY%27';
+let leprosyUrl = 'https://ghoapi.azureedge.net/api/WHS3_45?$filter=SpatialDimType%20eq%20%27COUNTRY%27';
 
 
 
@@ -22,7 +22,7 @@ let leprosyUrl = 'https://ghoapi.azureedge.net/api/NTD_LEPR5?$filter=SpatialDimT
 
 
 function printArray() {
-    fetch(malariaUrl).then(response => {
+    fetch(leprosyUrl).then(response => {
         if (!response.ok) {
           throw new Error('Network response was not OK');
         }
@@ -36,14 +36,17 @@ function printArray() {
 function arrayTable(data) {
     const table = [];
     for (let i = 0; i < data.length; i++) {
-        if (data[i].Value == "No malaria") {
-            table.push([data[i].SpatialDim])
-            console.log(`'${table[i][0]}',`)    
+        if (data[i]) {
+            let val = data[i].Value
+            if (val == 'No data') val = -1
+            if (data[i].TimeDim === 2004) {
+                console.log([data[i].SpatialDim,val,data[i].TimeDim])
+            }
         }
     }
 }
 
-// printArray()
+printArray()
 
 
 
