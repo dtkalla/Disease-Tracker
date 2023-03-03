@@ -22,7 +22,7 @@ let leprosyUrl = 'https://ghoapi.azureedge.net/api/WHS3_45?$filter=SpatialDimTyp
 
 
 function printArray() {
-    fetch(leprosyUrl).then(response => {
+    fetch(HIVUrl).then(response => {
         if (!response.ok) {
           throw new Error('Network response was not OK');
         }
@@ -39,7 +39,7 @@ function arrayTable(data) {
         if (data[i]) {
             let val = data[i].Value
             if (val == 'No data') val = -1
-            if (data[i].TimeDim === 2004) {
+            if (data[i].TimeDim === 2022) {
                 console.log([data[i].SpatialDim,val,data[i].TimeDim])
             }
         }

@@ -29,7 +29,7 @@ function htmlString(disease,year) {
     } else if (disease === "leprosy") {
         return `<h3>Leprosy Cases ${year}</h3>
         <text>
-        Hansen's disease, better known as leprosy, is a disease causing nerve damage, which can lead to blindness, paralysis, or untreated skin injuries.  (Modern leprosy is different from biblical leprosy.)  Like many neglected tropical diseases, data collection is inconsistent, making it difficult to see trends over time.  (Overall, though, numbers have gone down.)
+        Hansen's disease, better known as leprosy, is a disease causing nerve damage, which can lead to blindness, paralysis, or untreated skin injuries.  (Modern leprosy is different from biblical leprosy.)  As with many neglected tropical diseases, data collection is inconsistent, making it difficult to see trends over time.  (Overall, though, numbers have gone down.)
         <br>
         <br>
         Hansen's disease is not very infectious (95% of people are naturally immune) and can be cured with treatment, though the treatment takes 1-2 years.  Nerve damage and blindness caused by Hansen's disease are not reversible, however.
