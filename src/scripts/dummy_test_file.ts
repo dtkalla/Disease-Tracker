@@ -1,7 +1,7 @@
 // This file is to pull data from the API -- not necessary for the program, 
 // but helpful to have when I discover data issues.
 
-const fetch = require('node-fetch');
+// const fetch = require('node-fetch');
 // const conversionHash = require("./conversion.js");
 let malariaUrl = 'https://ghoapi.azureedge.net/api/MALARIA_EST_DEATHS?$filter=SpatialDimType%20eq%20%27COUNTRY%27';
 let tuberculosisUrl = 'https://ghoapi.azureedge.net/api/TB_e_mort_exc_tbhiv_num?$filter=SpatialDimType%20eq%20%27COUNTRY%27';
@@ -33,7 +33,7 @@ function printArray() {
     })
 }
 
-function arrayTable(data) {
+function arrayTable(data: any[]) {
     const table = [];
     for (let i = 0; i < data.length; i++) {
         if (data[i]) {

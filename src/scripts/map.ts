@@ -20,7 +20,18 @@ const setInnerHTML = function (ele, html) {
 }
 
 class Map {
-  constructor(ele) {
+  ele: HTMLElement
+  rangeConverter: {
+    [key: string]: [number,number];
+  }
+  sidebar: HTMLElement
+  minYear: HTMLElement
+  maxYear: HTMLElement
+  // slider: HTMLElement
+  disease: string
+  year: number
+
+  constructor(ele: HTMLElement) {
     this.ele = ele;
     this.rangeConverter = {
       malaria: [2000,2020],
@@ -52,7 +63,7 @@ class Map {
   }
 
 
-  resetMap(disease, year) {
+  resetMap(disease: string, year: number) {
     this.disease = disease;
     this.year = year;
     

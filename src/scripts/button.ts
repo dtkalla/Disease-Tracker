@@ -1,5 +1,9 @@
 class Button {
-    constructor(ele,map,disease){
+    ele: HTMLElement
+    map: HTMLElement
+    disease: string
+
+    constructor(ele:HTMLElement, map:HTMLElement, disease:string){
         this.ele = ele;
         this.map = map;
         this.disease = disease;
